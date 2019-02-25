@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
+const autoprefixer = require('autoprefixer');
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     template: path.join(__dirname, 'public', 'index.html'),
@@ -19,23 +19,27 @@ const CSSModuleLoader = {
     }
 }
 
-  const postCSSLoader = {
+const postCSSLoader = {
     loader: 'postcss-loader',
-      plugins:[
-        require('autoprefixer')
-      ]
-  }
+    options: {
+        plugins: [
+            autoprefixer({
+                browsers:['ie >= 8', 'last 4 version']
+            })
+        ],
+        sourceMap: true
+    }
+}
 
-
-  const DefinePluginConfig = new webpack.DefinePlugin({
+const DefinePluginConfig = new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-  });
+});
 
 
-  const MiniCssExtractPluginConfig = new MiniCssExtractPlugin({
+const MiniCssExtractPluginConfig = new MiniCssExtractPlugin({
     filename: "[name].css",
     chunkFilename: "[id].css"
-  });
+});
 
   console.log(DefinePluginConfig);
 
@@ -55,7 +59,7 @@ module.exports = {
                 use: [
                     process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
                     CSSModuleLoader,
-                     postCSSLoader, 
+                    postCSSLoader, 
                     'sass-loader'
                 ]
             },
