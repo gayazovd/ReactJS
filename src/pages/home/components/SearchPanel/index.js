@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import classNames from 'classNames/bind';
 import SearchPanelView from './view';
 
 const TABS = ['genre', 'title'];
@@ -25,7 +26,7 @@ class SearchPanel extends PureComponent {
     handleTabClick = tab => {
         this.setState({
             activeTab: tab
-        })
+        }, () => console.log(this.state))
     }
  
     render() {
