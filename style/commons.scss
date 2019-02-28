@@ -2,3 +2,11 @@
 $primaryFont: 'Open Sans', sans-serif;
 $primaryButtonsColor: #616161;
 $primaryButtonsBorder:  1px solid  #373737;
+body{
+    height: 100%;
+}
+.root{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}

@@ -2,6 +2,7 @@ import React,{ PureComponent } from 'react';
 import ReactDOM from 'react-dom';
 import Home from './pages/home';
 import '../style/reset.scss';
+import '../style/commons.scss';
 
 class App extends PureComponent{
     render(){
