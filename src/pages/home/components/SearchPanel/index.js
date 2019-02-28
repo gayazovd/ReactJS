@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import classNames from 'classNames/bind';
 import SearchPanelView from './view';
 
 const TABS = ['genre', 'title'];
@@ -8,7 +7,8 @@ class SearchPanel extends PureComponent {
 
     state = {
         search: '',
-        tab: 'genre'
+        tab: 'genre',
+        activeTab: 'title'
     }
 
     handleChangeInput = (e) => {
