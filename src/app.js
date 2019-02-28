@@ -1,6 +1,7 @@
 import React,{ PureComponent } from 'react';
 import ReactDOM from 'react-dom';
 import Home from './pages/home';
+import './normalize.scss';
 
 class App extends PureComponent{
     render(){

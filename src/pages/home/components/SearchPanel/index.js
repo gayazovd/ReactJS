@@ -33,6 +33,7 @@ class SearchPanel extends PureComponent {
         return ( 
            <SearchPanelView 
             {...this.state} 
+            tabs={TABS}
             onInputChange={this.handleChangeInput} 
             onClick={this.handleClick}
             onTabClick={this.handleTabClick}

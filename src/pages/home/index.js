@@ -9,8 +9,8 @@ export default class Home extends PureComponent {
                 <Header>
                 <SearchPanel />
                 </Header>
-                <MovieList />
-                <Footer />
+                {/* <MovieList /> */}
+                {/* <Footer /> */}
             </div>
         )
     }
