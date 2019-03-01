@@ -5,13 +5,13 @@
         "tagline":	"asas",
         "vote_average":	5,
         "vote_count":   2,
-        "release_date":	"02.03.1997",
+        "release_date":	"1997",
         "poster_path":	"https://image.tmdb.org/t/p/w500/3kcEGnYBHDeqmdYf8ZRbKdfmlUy.jpg",
         "overview":	"It's cool film",
         "budget":   100000,
         "revenue":	1000000,
         "runtime": 10201023424502,
-        "genres":	["Action","Drama","Comedy"]
+        "genres":	["Action ","Drama ","Comedy"]
     },
     {
         "id": 2,
@@ -19,13 +19,13 @@
         "tagline":	"asas",
         "vote_average":	5,
         "vote_count":   2,
-        "release_date":	"02.03.1997",
+        "release_date":	"1997",
         "poster_path":	"https://image.tmdb.org/t/p/w500/3kcEGnYBHDeqmdYf8ZRbKdfmlUy.jpg",
         "overview":	"It's cool film",
         "budget":   100000,
         "revenue":	1000000,
         "runtime": 10201023424502,
-        "genres":	["Action","Drama","Comedy"]
+        "genres":	["Action ","Drama ","Comedy"]
     },
     {
         "id": 3,
@@ -33,13 +33,13 @@
         "tagline":	"asas",
         "vote_average":	5,
         "vote_count":   2,
-        "release_date":	"02.03.1997",
+        "release_date":	"1997",
         "poster_path":	"https://image.tmdb.org/t/p/w500/3kcEGnYBHDeqmdYf8ZRbKdfmlUy.jpg",
         "overview":	"It's cool film",
         "budget":   100000,
         "revenue":	1000000,
         "runtime": 10201023424502,
-        "genres":	["Action","Drama","Comedy"]
+        "genres":	["Action ","Drama ","Comedy"]
     },
     {
         "id": 4,
@@ -47,13 +47,13 @@
         "tagline":	"asas",
         "vote_average":	5,
         "vote_count":   2,
-        "release_date":	"02.03.1997",
+        "release_date":	"1997",
         "poster_path":	"https://image.tmdb.org/t/p/w500/3kcEGnYBHDeqmdYf8ZRbKdfmlUy.jpg",
         "overview":	"It's cool film",
         "budget":   100000,
         "revenue":	1000000,
         "runtime": 10201023424502,
-        "genres":	["Action","Drama","Comedy"]
+        "genres":	["Action ","Drama ","Comedy"]
     },
     {
         "id": 5,
@@ -61,13 +61,13 @@
         "tagline":	"asas",
         "vote_average":	5,
         "vote_count":   2,
-        "release_date":	"02.03.1997",
+        "release_date":	"1997",
         "poster_path":	"https://image.tmdb.org/t/p/w500/3kcEGnYBHDeqmdYf8ZRbKdfmlUy.jpg",
         "overview":	"It's cool film",
         "budget":   100000,
         "revenue":	1000000,
         "runtime": 10201023424502,
-        "genres":	["Action","Drama","Comedy"]
+        "genres":	["Action ","Drama ","Comedy"]
     },
     {
         "id": 6,
@@ -75,13 +75,13 @@
         "tagline":	"asas",
         "vote_average":	5,
         "vote_count":   2,
-        "release_date":	"02.03.1997",
+        "release_date":	"1997",
         "poster_path":	"https://image.tmdb.org/t/p/w500/3kcEGnYBHDeqmdYf8ZRbKdfmlUy.jpg",
         "overview":	"It's cool film",
         "budget":   100000,
         "revenue":	1000000,
         "runtime": 10201023424502,
-        "genres":	["Action","Drama","Comedy"]
+        "genres":	["Action ","Drama ","Comedy"]
     },
     {
         "id": 7,
@@ -89,12 +89,12 @@
         "tagline":	"asas",
         "vote_average":	5,
         "vote_count":   2,
-        "release_date":	"02.03.1997",
+        "release_date":	"1997",
         "poster_path":	"https://image.tmdb.org/t/p/w500/3kcEGnYBHDeqmdYf8ZRbKdfmlUy.jpg",
         "overview":	"It's cool film",
         "budget":   100000,
         "revenue":	1000000,
         "runtime": 10201023424502,
-        "genres":	["Action","Drama","Comedy"]
+        "genres":	["Action ","Drama ","Comedy"]
     }
 ]

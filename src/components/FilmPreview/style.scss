@@ -5,4 +5,17 @@
 .wrapper{
     display: flex;
     flex-direction: column;
+    padding: 10px;
+    width: 29%;
+
 }
+.description{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+.date{
+    height: 15px;
+    border: 2px solid #61616171;
+    border-radius: 3px;
+  }

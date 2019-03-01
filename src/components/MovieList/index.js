@@ -11,7 +11,7 @@ class MovieList extends PureComponent{
 render() {
     return (
         <div className={cx('main-wrapper')}>
-            <MovieListView data={DataMock}/>
+            <MovieListView {...this.props}/>
         </div>
     )
 }

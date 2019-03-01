@@ -5,20 +5,21 @@ import s from './style.scss';
 const cx = classNames.bind(s);
 
 const FilmPreview = (props) =>{
-    let {title, tagline, vote_average, vote_count, release_date, poster_path, overview, budget, revenue, runtime, genres} = props.film;
-        return (
-                <div className={cx('wrapper')}>
-                    <img className={cx('images')} src={poster_path} />
-                    <div>
-                        <div>
-                            <h3>{title}</h3>
-                            <h5>{genres}</h5>
-                        </div>
-                        <div>
-                            {release_date}
+    let {title, release_date, poster_path, genres} = props.film;
+    const element = <div className={cx('wrapper')}>
+                        <img className={cx('images')} src={poster_path} />
+                        <div className={cx('description')}>
+                            <div>
+                                <h3>{title}</h3>
+                                <h5>{genres[0]}</h5>
+                            </div>
+                            <div className={cx('date')}>
+                                {new Date(release_date).getFullYear()}
+                            </div>
                         </div>
                     </div>
-                </div>
+        return (
+            element
         );
 }
 

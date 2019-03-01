@@ -44,7 +44,7 @@ const MiniCssExtractPluginConfig = new MiniCssExtractPlugin({
   console.log(DefinePluginConfig);
 
 module.exports = {
-    entry: path.join(__dirname,'src','app.js'),
+    entry: ['@babel/polyfill', path.join(__dirname,'src','app.js')],
     module: {
         rules: [
             {
