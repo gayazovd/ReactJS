@@ -1,6 +1,6 @@
 .images{
-    width: 200px;
-    height: 300px;
+    width: 250px;
+    height: 350px;
 }
 .wrapper{
     display: flex;
@@ -11,8 +11,18 @@
 }
 .description{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     padding: 5px;
+}
+.wrapper-genres-date{
+    display: flex;
+    padding-top: 10px;
+    justify-content: space-between;
+}
+.genres{
+    display: flex;
+    align-items: center;
+    color: #8d8888;
 }
 .date{
     height: 15px;

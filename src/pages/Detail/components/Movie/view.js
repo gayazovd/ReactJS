@@ -6,7 +6,6 @@ const cx = classNames.bind(styles);
 
 const FilmDetailView = (props) =>{ 
 let {title, tagline, vote_average, vote_count, release_date, poster_path, overview, budget, revenue, runtime, genres} = props.data;
-    
     return ( 
         <div className={cx('wrapper')}>
             <div className={cx('buttonsWrapper')}>
@@ -16,14 +15,16 @@ let {title, tagline, vote_average, vote_count, release_date, poster_path, overvi
             <div className={cx('film-present')}>
                 <img className={cx('film-image')} src={ poster_path } />
                 <div className={cx('description')}>
-                    <h2 className={cx('title')}>{ title }</h2>
-                    <div className={cx('vote-average')}>{ vote_average }</div>
-                    <h5>{ tagline }</h5>
-                    <div>
-                        {/* { release_date!== NaN && <span>{new Date(release_date).getFullYear()}</span>} */}
-                        {/* { runtime!==NaN && <span>{runtime} min</span>}  */}
+                    <div className={cx('wrapper-title-average')}>
+                        <h1 className={cx('title')}>{ title }</h1>
+                        <div className={cx('vote-average')}>{ vote_average }</div>
                     </div>
-                    <p>{ overview }</p>
+                    <h5>{ tagline }</h5>
+                    <div className={cx('release-date')}>
+                        { release_date && <span>{new Date(release_date).getFullYear()}</span>}
+                        { runtime && <span>{runtime} min</span>} 
+                    </div>
+                    <p className={cx('overview')}>{ overview }</p>
                 </div>
             </div>
         </div>

@@ -14,7 +14,7 @@ export default class FilmDetail extends PureComponent{
 
     async componentDidMount(){
         try{
-            const {data: movie}=await network('movies/269149');
+            const {data: movie}=await network(`/movies/269149`);
             console.log(movie)
             this.setState({movie});
         }catch(e){

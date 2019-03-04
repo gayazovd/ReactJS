@@ -2,4 +2,19 @@
     width: 100%;
     background: darkgray;
     height: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex: 0 0 auto;
+    cursor: pointer;
+    user-select: none;
+    font-size: 20px;
+}
+.sort-oprions{
+    display: flex;
+    justify-content: space-around;
+    width: 300px;
+}
+.activeTab{
+    color: red;
 }

@@ -1,12 +1,32 @@
-import React from 'react';
+import React, { PureComponent } from 'react'
+import InformationPanelView from './view';
 import classNames from 'classNames/bind';
-import s from './style.scss';
+import styles from './style.scss';
 
-const cx = classNames.bind(s);
+const cx = classNames.bind(styles);
 
-const InformationPanel = () => 
-    <div className={cx('wrapper')}>
+export default class InformationPanel extends PureComponent{
+    state = {
+        tabs: ['rating', 'release date'],
+        activeTab: 'rating'
+    }
+    handleClickOnSort = () =>{
+        if(this.state.activeTab === 'rating'){
+            this.setState({
+                activeTab: 'release date'
+            })
+        }else{
+            this.setState({
+                activeTab: 'rating'
+            })
+        }
+    }
 
-    </div>
-
-export default InformationPanel;
+    render() {
+        return (
+            <div className={cx('wrapper')}>
+                <InformationPanelView {...this.state} onClick={this.handleClickOnSort}/>
+            </div>
+        )
+    }
+}
