@@ -1,17 +1,31 @@
 import React, { PureComponent } from 'react';
 import FilmDetailView from './view';
-import styles from'./style.scss';
 import classNames from 'classNames/bind';
-import DataMock from '../../../../../DataMock.json';
-const data = DataMock[0];
+import { network } from '../../../../services/network'; 
 
+import styles from'./style.scss';
 const cx = classNames.bind(styles);
 
 export default class FilmDetail extends PureComponent{
+
+    state ={
+        movie:{}
+    }
+
+    async componentDidMount(){
+        try{
+            const {data: movie}=await network('movies/269149');
+            console.log(movie)
+            this.setState({movie});
+        }catch(e){
+            console.log(e);
+        }
+    }
     
     render() {
-        return (<div className={cx('wrapper')}>
-                    <FilmDetailView data={data}/>
+        const { movie } = this.state;
+        return (<div className={cx('main-wrapper')}>
+                    <FilmDetailView data={movie}/>
                 </div>
         );  
     }

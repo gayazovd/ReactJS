@@ -1,9 +1,32 @@
 @import '../../../../../style/commons.scss';
 $imageUrl: url(../../../../images/header-background.png);
-.wrapper{
+.main-wrapper{
     background-image: $imageUrl;
     @extend .images;
-    height: 400px;
+    display: flex;
+    justify-content: center;
+}
+.wrapper{
+  width: 70%;
+  color: rgb(243, 241, 241)
+}
+.title{
+  color: rgb(207, 63, 87); 
+  display: inline-block; 
+}
+.vote-average{
+  display: inline-block;
+
+}
+.description{
+  width: 50%;
+}
+.film-image{
+  height: 400px;
+  width: 300px;
+}
+.film-present{
+  display: flex;
 }
 .logo{
     color: rgb(207, 63, 87);

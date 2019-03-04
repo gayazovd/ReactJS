@@ -29,7 +29,7 @@ export default class Home extends PureComponent {
 
     render() {
         const { movies } = this.state;
-
+        console.log(movies);
         return (
             <div className={cx("wrapper")}>
                 <Header>

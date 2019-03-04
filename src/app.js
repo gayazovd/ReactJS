@@ -9,8 +9,8 @@ class App extends PureComponent{
     render(){
         return (
             <div>
-                <Home />
-                {/* <Detail/> */}
+                {/* <Home /> */}
+                <Detail/>
             </div>
         );
     }
