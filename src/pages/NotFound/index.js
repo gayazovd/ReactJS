@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import Header from '../../components/Header';
 import SearchPanel from '../../components/SearchPanel';
-import InformationPanel from '../../components/InformationPanel/view';
+import InformationPanel from '../../components/InformationPanel';
 import NotFoundFilms from './components/NotFoundFilms';
 import Footer from '../../components/Footer';
 

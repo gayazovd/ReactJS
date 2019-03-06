@@ -7,7 +7,7 @@ const cx = classNames.bind(styles);
 
 const NotFoundFilms = () => 
     <div className={cx('wrapper')}>
-        <h1 className={cx('error')}> No films found </h1>
+        <h1 className={cx('error')}>No films found</h1>
     </div>
 
 export default NotFoundFilms;

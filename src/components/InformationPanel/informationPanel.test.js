@@ -13,8 +13,14 @@ describe('function onClick call',() => {
             tabs: ['1','2'],
             activeTab: '1'
         }
-          it('function called', () => {
-           const informationPanelView = shallow(<InformationPanelView {...props}/>)
-            
-          })
+            it('snapshot', () => {
+                const informationPanelView = shallow(<InformationPanelView {...props}/>);
+                expect(informationPanelView).toMatchSnapshot();
+            })
+
+            it('function called', () => {
+                const informationPanelView = shallow(<InformationPanelView {...props}/>).find('#test');
+                informationPanelView.simulate('click');
+                expect(onClick).toHaveBeenCalled();
+            })
 })

@@ -12,7 +12,15 @@ export default class FilmDetail extends PureComponent{
         movie:{}
     }
 
-    async componentDidMount(){
+
+    componentDidMount() {
+        network(`/movies/269149`)
+        .then(movie => {
+            this.setState({movie: movie.data})
+        })
+        .catch(console.log)
+    }
+/*     async componentDidMount(){
         try{
             const {data: movie}=await network(`/movies/269149`);
             console.log(movie)
@@ -20,7 +28,7 @@ export default class FilmDetail extends PureComponent{
         }catch(e){
             console.log(e);
         }
-    }
+    } */
     
     render() {
         const { movie } = this.state;

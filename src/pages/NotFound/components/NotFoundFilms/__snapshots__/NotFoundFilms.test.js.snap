@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component <NotFoundFilms /> is render <NotFoundFilms /> snapshot 1`] = `
+<div
+  className="wrapper"
+>
+  <h1
+    className="error"
+  >
+    No films found
+  </h1>
+</div>
+`;

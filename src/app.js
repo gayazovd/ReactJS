@@ -18,8 +18,8 @@ class App extends PureComponent{
     render(){
         return (
             <>
-                <Home />
-                {/* <Detail /> */}
+                {/* <Home /> */}
+                <Detail />
                 {/* <NotFound /> */}
             </>
         );

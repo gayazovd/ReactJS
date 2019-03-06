@@ -16,7 +16,15 @@ export default class Home extends PureComponent {
         movies: [],
     }
 
-    async componentDidMount() {
+    componentDidMount(){
+        network('/movies')
+        .then(data => {
+            const {data: movies} = data.data;
+            this.setState({movies});
+        })
+        .catch(console.log);
+    }
+/*     async componentDidMount() {
         try {
            const { data: { data: movies } } = await network('/movies');
 
@@ -25,7 +33,7 @@ export default class Home extends PureComponent {
         } catch(e) {
            console.log(e);     
         }
-    }
+    } */
 
     render() {
         const { movies } = this.state;

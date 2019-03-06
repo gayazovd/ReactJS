@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`function onClick call snapshot 1`] = `
+<Fragment>
+  <div>
+    7 movies found
+  </div>
+  <div
+    className="sort-oprions"
+  >
+    <div
+      id="test"
+      onClick={[MockFunction]}
+    >
+       Sort by 
+    </div>
+    <div
+      className="activeTab"
+      key="1"
+    >
+       
+      1
+       
+    </div>
+    <div
+      className=""
+      key="2"
+    >
+       
+      2
+       
+    </div>
+  </div>
+</Fragment>
+`;

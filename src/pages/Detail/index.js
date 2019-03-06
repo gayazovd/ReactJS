@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import FilmDetail from './components/Movie';
 import classNames from 'classNames/bind';
 import MovieList from '../../components/MovieList';
-import InformationPanel from '../../components/InformationPanel/view';
+import InformationPanel from '../../components/InformationPanel';
 import Footer from '../../components/Footer';
 import { network } from '../../services/network'; 
 
@@ -16,24 +16,33 @@ export default class Detail extends PureComponent{
         movies: []
     }
 
-    async componentDidMount(){
+    componentDidMount(){
+        network('/movies')
+        .then(data =>{ 
+                const {data: movies} = data.data
+                this.setState({movies})
+            })
+        .catch(console.log)
+    }
+
+/*     async componentDidMount(){
         try{
             const { data: { data: movies } } = await network('/movies');
             this.setState({ movies });
         }catch(e){
             console.log(e);
         }
-    }
+    } */
     
     render() {
         const {movies} = this.state;
         console.log(movies);
         return (
             <>
-                <FilmDetail/>
-                <InformationPanel/>
-                <MovieList data={movies}/>
-                <Footer/>
+                <FilmDetail />
+                <InformationPanel />
+                <MovieList data={movies} />
+                <Footer />
             </>
         )
     }

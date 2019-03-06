@@ -6,7 +6,7 @@ const cx = classNames.bind(s);
 
 const MovieListView = ({ data }) =>  
     <div className={cx('wrapper')}>
-        {data.map(item =>
+        {data && data.map(item =>
             <FilmPreview key={item.id} film={item}/> 
         )}
     </div>

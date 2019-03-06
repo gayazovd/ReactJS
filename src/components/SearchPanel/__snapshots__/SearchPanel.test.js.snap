@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component <SearchPanelView /> is render get snapshot <SearchPanelView /> component 1`] = `
+<div
+  className="wrapper"
+>
+  <div
+    className="logo"
+  >
+    netflixroullete
+  </div>
+  <div
+    className="titleFind"
+  >
+    FIND YOUR MOVIE
+  </div>
+  <input
+    className="inputButton"
+    onChange={[MockFunction]}
+    value=""
+  />
+  <div
+    className="buttonsWraper"
+  >
+    <div
+      className="optionsButtons"
+    >
+      <p
+        className="title"
+      >
+        SEARCH BY
+      </p>
+      <button
+        className="buttons activeTab"
+        key="0"
+        onClick={[Function]}
+      >
+        1
+      </button>
+      <button
+        className="buttons"
+        key="1"
+        onClick={[Function]}
+      >
+        2
+      </button>
+    </div>
+    <button
+      className="search"
+      onClick={[MockFunction]}
+    >
+      SEARCH
+    </button>
+  </div>
+</div>
+`;

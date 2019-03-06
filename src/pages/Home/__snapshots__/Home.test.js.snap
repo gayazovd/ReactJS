@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Home/> component testing component <Home /> snapshot 1`] = `
+<Fragment>
+  <Header>
+    <SearchPanel />
+  </Header>
+  <InformationPanel />
+  <MovieList
+    data={Array []}
+  />
+  <Footer />
+</Fragment>
+`;
