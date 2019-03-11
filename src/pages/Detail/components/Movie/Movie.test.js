@@ -4,7 +4,7 @@ import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import FilmDetail from './index';
 import FilmDetailView from './view';
-import Detail from '../../index';
+
 configure({ adapter: new Adapter() });
 
 describe('Component is render',() => {
