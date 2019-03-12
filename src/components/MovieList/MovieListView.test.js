@@ -11,15 +11,15 @@ configure({ adapter: new Adapter() });
 describe('MovieListView is render', () => {
     const props = {
         data: [{id:1},{id:2}]
-    }
+    };
 
-    const movieList = shallow(<MovieList />);
+    const movieView = shallow(<MovieListView {...props}/>);
 
     it('get snapshot component', () => {
-        expect(movieList).toMatchSnapshot();
-    })
+        expect(movieView).toMatchSnapshot();
+    });
 
-    it('component <MovieList/> is render', () => {
-        expect(movieList.find(MovieListView)).toHaveLength(1);
-    })
+    it('component <MovieListView/> is render', () => {
+        expect(movieView.find('FilmPreview')).toHaveLength(2);
+    });
 })

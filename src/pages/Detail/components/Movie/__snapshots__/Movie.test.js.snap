@@ -2,16 +2,6 @@
 
 exports[`Component is render <FilmDetail /> snapshot 1`] = `
 <div
-  className="main-wrapper"
->
-  <FilmDetailView
-    data={Object {}}
-  />
-</div>
-`;
-
-exports[`Component is render <FilmDetail /> snapshot 2`] = `
-<div
   className="wrapper"
 >
   <div

@@ -23,8 +23,6 @@ export default class InformationPanel extends PureComponent{
     }
 
     render() {
-        console.log('state is')
-        console.log(this.state);
         return (
             <div className={cx('wrapper')}>
                 <InformationPanelView {...this.state} onClick={this.handleClickOnSort}/>

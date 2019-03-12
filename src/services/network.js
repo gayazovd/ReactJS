@@ -1,5 +1,5 @@
 import axios from 'axios';
 
-export const network = axios.create({
+export let network = axios.create({
     baseURL: 'http://react-cdp-api.herokuapp.com',
 });

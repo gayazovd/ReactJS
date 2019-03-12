@@ -6,7 +6,6 @@ const cx = classNames.bind(styles);
 
 const InformationPanelView = (props) => {
     let {onClick,tabs, activeTab} = props;
-    console.log(props);
     return (<>
                 <div>7 movies found</div>
                 <div className={cx('sort-oprions')} >

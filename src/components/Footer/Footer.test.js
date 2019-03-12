@@ -7,8 +7,12 @@ import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
 
 describe('Footer is render',() => {
+    const footer = shallow(<Footer />);
+    it('Footer snapshot', () => {
+        expect(footer).toMatchSnapshot();
+    })
+
     it('render Footer',() => {
-        const footer = shallow(<Footer />);
         expect(footer.find('.logo').text()).toEqual('netflixroullete');
     })
 })

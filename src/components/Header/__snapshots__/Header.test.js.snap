@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component is render Header snapshot 1`] = `
+<div
+  className="wrapper wrapperPosition"
+>
+  <div
+    className="one"
+  >
+    Hello World!
+  </div>
+</div>
+`;

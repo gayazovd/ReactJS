@@ -10,10 +10,14 @@ configure({ adapter: new Adapter() });
 describe('Header component is render', () => {
     const props = {
         children: <div className='one'>Hello World!</div>
-    }
+    };
+    const header = shallow(<Header {...props} />);
+
+    it('Header snapshot', () => {
+        expect(header).toMatchSnapshot();
+    });
 
     it('Header render', () => {
-        const header = shallow(<Header {...props} />)
         expect(header.find('.one').text()).toEqual('Hello World!')
-    })
+    });
 })

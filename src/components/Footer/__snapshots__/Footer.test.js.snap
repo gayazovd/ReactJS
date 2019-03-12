@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer is render Footer snapshot 1`] = `
+<div
+  className="wrapper"
+>
+  <div
+    className="logo"
+  >
+    netflixroullete
+  </div>
+</div>
+`;
