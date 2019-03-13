@@ -7,22 +7,17 @@ import Footer from '../../components/Footer';
 import classNames from 'classNames/bind';
 import { network } from '../../services/network'; 
 
+import { connect } from 'react-redux';
+import { fetchData } from '../../store/components/Home/actionsCreator';
+
 import styles from './style.scss';
 const cx = classNames.bind(styles);
 
-export default class Home extends PureComponent {
+class Home extends PureComponent {
 
-    state = {
-        movies: [],
-    }
 
     componentDidMount(){
-        network('/movies')
-        .then(data => {
-            const {data: movies} = data.data;
-            this.setState({movies});
-        })
-        .catch(console.log);
+        this.props.fetchData('/movies');
     }
 /*     async componentDidMount() {
         try {
@@ -36,16 +31,27 @@ export default class Home extends PureComponent {
     } */
 
     render() {
-        const { movies } = this.state;
         return (
             <>
                 <Header>
                     <SearchPanel />
                 </Header>
                 <InformationPanel/>
-                <MovieList data={movies}/> 
+                <MovieList data={this.props.movies}/> 
                 <Footer />
             </>
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        movies: state.movies
+    };
+}
+
+const mapDispatchToProps = {
+    fetchData
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
