@@ -8,15 +8,15 @@ configure({ adapter: new Adapter() });
 
 describe('FilmPreview component is render', () => {
     const props = {
-        film:{
+        film: {
             title: 'TITLE',
             release_date: '2019',
             poster_path: '/sasads/sds',
             genres: ['action']
         }
-    }
-    it('FilmPreview render',() => {
-        const filmpreview = shallow(<FilmPreview {...props} />)
+    };
+    it('FilmPreview render', () => {
+        const filmpreview = shallow(<FilmPreview {...props} />);
         expect(filmpreview.find('.date').text()).toEqual('2019');
-    })
-})
+    });
+});

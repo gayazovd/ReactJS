@@ -22,8 +22,8 @@ class App extends PureComponent{
     render(){
         return (
             <Provider store={store}>
-                <Home />
-                {/* <Detail /> */}
+                {/* <Home /> */}
+                <Detail />
                 {/* <NotFound /> */}
             </Provider>
         );

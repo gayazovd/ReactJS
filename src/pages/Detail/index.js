@@ -9,34 +9,21 @@ import { network } from '../../services/network';
 import styles from './style.scss';
 const cx = classNames.bind(styles);
 
+import { connect } from 'react-redux';
+import { fetchData } from '../../store/components/Home/actionsCreator';
 
 
-export default class Detail extends PureComponent{
-    state = {
-        movies: []
-    }
+class Detail extends PureComponent{
+
 
     componentDidMount(){
-        network('/movies')
-        .then(data =>{ 
-                const {data: movies} = data.data
-                this.setState({movies})
-            })
-        .catch(console.log)
+        this.props.fetchData('/movies');
     }
 
-/*     async componentDidMount(){
-        try{
-            const { data: { data: movies } } = await network('/movies');
-            this.setState({ movies });
-        }catch(e){
-            console.log(e);
-        }
-    } */
+
     
     render() {
-        const {movies} = this.state;
-        console.log(movies);
+        const { movies } = this.props;
         return (
             <>
                 <FilmDetail />
@@ -47,3 +34,14 @@ export default class Detail extends PureComponent{
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        movies: state.movies
+    }
+}
+
+const mapDispatchToProps = {
+    fetchData
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Detail) 

@@ -19,25 +19,16 @@ class Home extends PureComponent {
     componentDidMount(){
         this.props.fetchData('/movies');
     }
-/*     async componentDidMount() {
-        try {
-           const { data: { data: movies } } = await network('/movies');
-
-           this.setState({ movies });
-           
-        } catch(e) {
-           console.log(e);     
-        }
-    } */
 
     render() {
+        const movies = this.props;
         return (
             <>
                 <Header>
                     <SearchPanel />
                 </Header>
                 <InformationPanel/>
-                <MovieList data={this.props.movies}/> 
+                <MovieList data={movies}/> 
                 <Footer />
             </>
         )
