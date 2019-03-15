@@ -1,26 +1,20 @@
 import React, { PureComponent } from 'react';
 import FilmDetailView from './view';
 import classNames from 'classNames/bind';
-import { network } from '../../../../services/network'; 
+import { network } from '../../../../services/network';
 
-import styles from'./style.scss';
+import { connect } from 'react-redux';
+import getDataFromServer from '../../../../store/components/Detail/fetchFilms';
+
+import styles from './style.scss';
 const cx = classNames.bind(styles);
 
-export default class FilmDetail extends PureComponent{
+class FilmDetail extends PureComponent {
+  componentDidMount() {
+    this.props.getDataFromServer('/movies/269149');
+  }
 
-    state ={
-        movie:{}
-    }
-
-
-    componentDidMount() {
-        network(`/movies/269149`)
-        .then(movie => {
-            this.setState({movie: movie.data})
-        })
-        .catch(console.log)
-    }
-/*     async componentDidMount(){
+  /*     async componentDidMount(){
         try{
             const {data: movie}=await network(`/movies/269149`);
             console.log(movie)
@@ -29,13 +23,27 @@ export default class FilmDetail extends PureComponent{
             console.log(e);
         }
     } */
-    
-    render() {
-        const { movie } = this.state;
-        return (<div className={cx('main-wrapper')}>
-                    <FilmDetailView data={movie}/>
-                </div>
-        );  
-    }
-}
 
+  render() {
+    const { movie } = this.props;
+    return (
+      <div className={cx('main-wrapper')}>
+        <FilmDetailView data={movie} />
+      </div>
+    );
+  }
+}
+const mapStateToProps = state => {
+  return {
+    movie: state.movie
+  };
+};
+
+const mapDispatchToProps = {
+  getDataFromServer
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(FilmDetail);
