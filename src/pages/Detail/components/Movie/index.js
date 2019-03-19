@@ -11,7 +11,7 @@ const cx = classNames.bind(styles);
 
 class FilmDetail extends PureComponent {
   componentDidMount() {
-    this.props.getDataFromServer('/movies/269149');
+    this.props.getDataFromServer(`/movies/269149`); // подгружает один фильм
   }
 
   /*     async componentDidMount(){

@@ -1,20 +1,35 @@
 import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
 import MovieListView from './view';
-import DataMock from '../../../DataMock.json';
+import { getIdByFilm } from '../../store/components/Detail/getIdfilm';
 import classNames from 'classNames/bind';
 import s from './style.scss';
 const cx = classNames.bind(s);
 
+class MovieList extends PureComponent {
+  handleClickOnFilm = id => {
+    this.props.getIdByFilm(id);
+  };
 
-class MovieList extends PureComponent{
-
-render() {
+  render() {
     return (
-        <div className={cx('main-wrapper')}>
-            <MovieListView {...this.props}/>
-        </div>
-    )
-}
+      <div className={cx('main-wrapper')}>
+        <MovieListView onHandleClick={this.handleClickOnFilm} {...this.props} />
+      </div>
+    );
+  }
 }
 
-export default MovieList;
+const mapStateToProps = state => {
+  return {
+    id: state.id
+  };
+};
+const mapDispatchToProps = {
+  getIdByFilm
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MovieList);
