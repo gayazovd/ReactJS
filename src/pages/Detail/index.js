@@ -7,7 +7,7 @@ import Footer from '../../components/Footer';
 
 import styles from './style.scss';
 
-import fetchData from '../../store/components/Home/actionsCreator';
+import fetchData from '../../store/components/Default/actions/actionsCreator';
 
 import classNames from 'classNames/bind';
 const cx = classNames.bind(styles);

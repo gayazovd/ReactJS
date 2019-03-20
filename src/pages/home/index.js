@@ -6,7 +6,7 @@ import MovieList from '../../components/MovieList';
 import InformationPanel from '../../components/InformationPanel';
 import Footer from '../../components/Footer';
 
-import fetchData from '../../store/components/Home/actionsCreator';
+import fetchData from '../../store/components/Default/actions/actionsCreator';
 
 class Home extends PureComponent {
   componentDidMount() {

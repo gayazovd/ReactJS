@@ -1,32 +1,38 @@
 import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
 import InformationPanelView from './view';
-import classNames from 'classNames/bind';
 import styles from './style.scss';
+import classNames from 'classNames/bind';
+
+import fetchBySort from '../../store/components/Default/actions/fetchBySort';
 
 const cx = classNames.bind(styles);
 
-export default class InformationPanel extends PureComponent {
-  state = {
-    tabs: ['rating', 'release date'],
-    activeTab: 'rating'
-  };
-  handleClickOnSort = () => {
-    if (this.state.activeTab === 'rating') {
-      this.setState({
-        activeTab: 'release date'
-      });
-    } else {
-      this.setState({
-        activeTab: 'rating'
-      });
-    }
+class InformationPanel extends PureComponent {
+  handleClickOnSort = tab => {
+    this.props.fetchBySort(tab);
   };
 
   render() {
+    const { tabs } = this.props;
     return (
       <div className={cx('wrapper')}>
-        <InformationPanelView {...this.state} onClick={this.handleClickOnSort} />
+        <InformationPanelView tabs={tabs} onHandeleClick={this.handleClickOnSort} />
       </div>
     );
   }
 }
+const mapStateToProps = state => {
+  return {
+    tabs: state.tabs
+  };
+};
+
+const mapDispatchToProps = {
+  fetchBySort
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(InformationPanel);

@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import dataFromServer from './components/Home/reducers';
-import movie from './components/Detail/reducers';
+import dataFromServer from './components/Default/reducers/fetchReducers';
+import activeFilm from './components/Default/reducers/activeReducer';
+import tabs from './components/Default/reducers/tabs';
 
 export default combineReducers({
   movies: dataFromServer,
-  movie
+  active: activeFilm,
+  tabs
 });

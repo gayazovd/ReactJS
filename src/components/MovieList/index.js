@@ -1,20 +1,20 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import MovieListView from './view';
-import { getIdByFilm } from '../../store/components/Detail/getIdfilm';
+import { getFilm } from '../../store/components/Default/actions/actions';
 import classNames from 'classNames/bind';
 import s from './style.scss';
 const cx = classNames.bind(s);
 
 class MovieList extends PureComponent {
-  handleClickOnFilm = id => {
-    this.props.getIdByFilm(id);
+  handleClickOnFilm = item => {
+    this.props.getFilm(item);
   };
 
   render() {
     return (
       <div className={cx('main-wrapper')}>
-        <MovieListView onHandleClick={this.handleClickOnFilm} {...this.props} />
+        <MovieListView onHandleClick={this.handleClickOnFilm} data={this.props.movies} />
       </div>
     );
   }
@@ -22,11 +22,11 @@ class MovieList extends PureComponent {
 
 const mapStateToProps = state => {
   return {
-    id: state.id
+    movies: state.movies
   };
 };
 const mapDispatchToProps = {
-  getIdByFilm
+  getFilm
 };
 
 export default connect(

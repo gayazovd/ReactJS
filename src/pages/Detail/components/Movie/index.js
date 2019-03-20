@@ -1,46 +1,31 @@
 import React, { PureComponent } from 'react';
-import FilmDetailView from './view';
-import classNames from 'classNames/bind';
-import { network } from '../../../../services/network';
-
 import { connect } from 'react-redux';
-import getDataFromServer from '../../../../store/components/Detail/fetchFilms';
+import FilmDetailView from './view';
+import { getFilm } from '../../../../store/components/Default/actions/actions';
 
 import styles from './style.scss';
+import classNames from 'classNames/bind';
+
 const cx = classNames.bind(styles);
 
 class FilmDetail extends PureComponent {
-  componentDidMount() {
-    this.props.getDataFromServer(`/movies/269149`); // подгружает один фильм
-  }
-
-  /*     async componentDidMount(){
-        try{
-            const {data: movie}=await network(`/movies/269149`);
-            console.log(movie)
-            this.setState({movie});
-        }catch(e){
-            console.log(e);
-        }
-    } */
-
   render() {
-    const { movie } = this.props;
+    const { active } = this.props;
     return (
       <div className={cx('main-wrapper')}>
-        <FilmDetailView data={movie} />
+        <FilmDetailView data={active} />
       </div>
     );
   }
 }
 const mapStateToProps = state => {
   return {
-    movie: state.movie
+    movies: state.movies,
+    active: state.active
   };
 };
-
 const mapDispatchToProps = {
-  getDataFromServer
+  getFilm
 };
 
 export default connect(

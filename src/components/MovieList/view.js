@@ -9,7 +9,7 @@ const MovieListView = ({ onHandleClick, data }) => (
   <div className={cx('wrapper')}>
     {data &&
       data.map(item => (
-        <FilmPreview onClick={() => onHandleClick(item.id)} key={item.id} film={item} />
+        <FilmPreview onClick={() => onHandleClick(item)} key={item.id} film={item} />
       ))}
   </div>
 );
