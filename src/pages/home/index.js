@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Header from '../../components/Header';
 import SearchPanel from '../../components/SearchPanel';
@@ -9,12 +10,16 @@ import Footer from '../../components/Footer';
 import fetchData from '../../store/components/Default/actions/actionsCreator';
 
 class Home extends PureComponent {
+  static propTypes = {
+    movies: PropTypes.arrayOf(PropTypes.object).isRequired
+  };
+
   componentDidMount() {
     this.props.fetchData('/movies');
   }
 
   render() {
-    const movies = this.props;
+    const { movies } = this.props;
     return (
       <>
         <Header>

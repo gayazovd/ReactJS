@@ -4,17 +4,17 @@ import styles from './style.scss';
 const cx = classNames.bind(styles);
 
 const InformationPanelView = props => {
-  let { onHandeleClick, tabs } = props;
+  const { onHandleClick, tabs, length, activeTab } = props;
   return (
     <>
-      <div>7 movies found</div>
+      <div>{length} movies found</div>
       <div className={cx('sort-oprions')}>
         <div id="test">Sort by</div>
         {tabs.map(tab => (
           <div
             key={tab.id}
-            onClick={() => onHandeleClick(tab)}
-            className={cx({ activeTab: tab.active })}
+            onClick={() => onHandleClick(tab)}
+            className={cx({ activeTab: tab.name === activeTab.name })}
           >
             {tab.name}
           </div>

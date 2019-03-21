@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import FilmPreview from '../FilmPreview';
 import s from './style.scss';
 
@@ -13,5 +14,9 @@ const MovieListView = ({ onHandleClick, data }) => (
       ))}
   </div>
 );
+MovieListView.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onHandleClick: PropTypes.func.isRequired
+};
 
 export default MovieListView;

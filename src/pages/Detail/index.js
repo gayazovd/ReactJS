@@ -1,16 +1,12 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import FilmDetail from './components/Movie';
 import MovieList from '../../components/MovieList';
 import InformationPanel from '../../components/InformationPanel';
 import Footer from '../../components/Footer';
 
-import styles from './style.scss';
-
 import fetchData from '../../store/components/Default/actions/actionsCreator';
-
-import classNames from 'classNames/bind';
-const cx = classNames.bind(styles);
 
 class Detail extends PureComponent {
   componentDidMount() {
@@ -29,6 +25,11 @@ class Detail extends PureComponent {
     );
   }
 }
+
+Detail.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+  fetchData: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => {
   return {

@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import MovieListView from './view';
 import { getFilm } from '../../store/components/Default/actions/actions';
@@ -12,13 +13,17 @@ class MovieList extends PureComponent {
   };
 
   render() {
+    const { movies } = this.props;
     return (
       <div className={cx('main-wrapper')}>
-        <MovieListView onHandleClick={this.handleClickOnFilm} data={this.props.movies} />
+        <MovieListView onHandleClick={this.handleClickOnFilm} data={movies} />
       </div>
     );
   }
 }
+MovieList.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired
+};
 
 const mapStateToProps = state => {
   return {
