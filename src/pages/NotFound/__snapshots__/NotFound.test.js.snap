@@ -5,7 +5,7 @@ exports[`component <NotFoundFilms /> is render <NotFound /> snapshot 1`] = `
   <Header>
     <SearchPanel />
   </Header>
-  <InformationPanel />
+  <Connect(InformationPanel) />
   <NotFoundFilms />
   <Footer />
 </Fragment>

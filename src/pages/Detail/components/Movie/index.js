@@ -11,7 +11,7 @@ const cx = classNames.bind(styles);
 
 class FilmDetail extends PureComponent {
   static propTypes = {
-    active: PropTypes.shape({
+    filmPreview: PropTypes.shape({
       id: PropTypes.number,
       genres: PropTypes.array,
       vote_average: PropTypes.number,
@@ -21,10 +21,10 @@ class FilmDetail extends PureComponent {
   };
 
   render() {
-    const { active } = this.props;
+    const { filmPreview } = this.props;
     return (
       <div className={cx('main-wrapper')}>
-        <FilmDetailView data={active} />
+        <FilmDetailView data={filmPreview} />
       </div>
     );
   }
@@ -33,7 +33,7 @@ class FilmDetail extends PureComponent {
 const mapStateToProps = state => {
   return {
     movies: state.movies,
-    active: state.active
+    filmPreview: state.filmPreview
   };
 };
 const mapDispatchToProps = {

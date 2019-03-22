@@ -3,33 +3,24 @@
 exports[`function onClick call snapshot 1`] = `
 <Fragment>
   <div>
-    7 movies found
+     movies found
   </div>
   <div
     className="sort-oprions"
   >
-    <div
-      id="test"
-      onClick={[MockFunction]}
-    >
-       Sort by 
+    <div>
+      Sort by
     </div>
     <div
       className="activeTab"
       key="1"
-    >
-       
-      1
-       
-    </div>
+      onClick={[Function]}
+    />
     <div
-      className=""
+      className="activeTab"
       key="2"
-    >
-       
-      2
-       
-    </div>
+      onClick={[Function]}
+    />
   </div>
 </Fragment>
 `;

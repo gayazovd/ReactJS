@@ -1,11 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`test <FilmDetail /> component <FilmDetail /> snapshot 1`] = `
-<div
-  className="main-wrapper"
->
-  <FilmDetailView
-    data={Object {}}
-  />
-</div>
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
 `;

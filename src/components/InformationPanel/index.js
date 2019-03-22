@@ -15,7 +15,6 @@ const tabs = [
 
 class InformationPanel extends PureComponent {
   handleClickOnSort = tab => {
-    console.log(tab);
     this.props.fetchBySort(tab);
   };
 
@@ -36,7 +35,7 @@ class InformationPanel extends PureComponent {
 const mapStateToProps = state => {
   return {
     length: state.movies.length,
-    activeTab: state.activeTab
+    activeTab: state.tabActive
   };
 };
 

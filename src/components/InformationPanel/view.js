@@ -9,7 +9,7 @@ const InformationPanelView = props => {
     <>
       <div>{length} movies found</div>
       <div className={cx('sort-oprions')}>
-        <div id="test">Sort by</div>
+        <div>Sort by</div>
         {tabs.map(tab => (
           <div
             key={tab.id}

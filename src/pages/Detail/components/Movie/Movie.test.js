@@ -10,7 +10,7 @@ describe('Component is render', () => {
     data: {
       title: 'Heroes',
       tagline: 'movie',
-      vote_average: '7.7',
+      vote_average: 7.7,
       release_date: '2019',
       poster_path: 'path',
       overview: 'asas',

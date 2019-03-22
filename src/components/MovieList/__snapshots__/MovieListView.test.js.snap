@@ -11,6 +11,7 @@ exports[`MovieListView is render get snapshot component 1`] = `
       }
     }
     key="1"
+    onClick={[Function]}
   />
   <FilmPreview
     film={
@@ -19,6 +20,7 @@ exports[`MovieListView is render get snapshot component 1`] = `
       }
     }
     key="2"
+    onClick={[Function]}
   />
 </div>
 `;

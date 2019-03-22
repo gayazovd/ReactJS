@@ -6,21 +6,23 @@ import InformationPanelView from './view';
 
 configure({ adapter: new Adapter() });
 
-describe('function onClick call',() => {
-    const onClick = jest.fn(),
-        props = {
-            onClick,
-            tabs: ['1','2'],
-            activeTab: '1'
-        }
-            it('snapshot', () => {
-                const informationPanelView = shallow(<InformationPanelView {...props}/>);
-                expect(informationPanelView).toMatchSnapshot();
-            })
+describe('function onClick call', () => {
+  const onHandleClick = jest.fn();
+  const props = {
+    onHandleClick,
+    tabs: [{ id: 1 }, { id: 2 }],
+    activeTab: '1'
+  };
+  it('snapshot', () => {
+    const informationPanelView = shallow(<InformationPanelView {...props} />);
+    expect(informationPanelView).toMatchSnapshot();
+  });
 
-            it('function called', () => {
-                const informationPanelView = shallow(<InformationPanelView {...props}/>).find('#test');
-                informationPanelView.simulate('click');
-                expect(onClick).toHaveBeenCalled();
-            })
-})
+  it('function called', () => {
+    const informationPanelView = shallow(<InformationPanelView {...props} />)
+      .find('.activeTab')
+      .at(1);
+    informationPanelView.simulate('click');
+    expect(onHandleClick).toHaveBeenCalledTimes(1);
+  });
+});

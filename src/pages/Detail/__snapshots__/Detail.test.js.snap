@@ -1,12 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Detail/> component testing component <Detail /> snapshot 1`] = `
-<Fragment>
-  <FilmDetail />
-  <InformationPanel />
-  <MovieList
-    data={Array []}
-  />
-  <Footer />
-</Fragment>
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
 `;

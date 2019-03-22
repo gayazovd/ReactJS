@@ -2,6 +2,7 @@ export const FETCH_REQUEST_TO_SERVER = 'FETCH_REQUEST_TO_SERVER';
 export const SHOW_FILM_DETAIL = 'SHOW_FILM_DETAIL';
 export const SORTING_TAB = 'SORTING_TAB';
 export const ACTIVE_TAB = 'ACTIVE_TAB';
+export const CHANGE_INPUT = 'CHANGE_INPUT';
 
 export const getSortOnTab = movies => {
   return {

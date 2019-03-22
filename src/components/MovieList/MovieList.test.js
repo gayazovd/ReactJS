@@ -5,21 +5,16 @@ import Adapter from 'enzyme-adapter-react-16';
 import MovieListView from './view';
 import MovieList from './index';
 
-
 configure({ adapter: new Adapter() });
 
 describe('MovieListView is render', () => {
-    const props = {
-        data: [{id:1},{id:2}]
-    }
+  const props = {
+    data: [{ id: 1 }, { id: 2 }]
+  };
 
-    const movieList = shallow(<MovieList />);
+  const movieList = shallow(<MovieList />);
 
-    it('get snapshot component', () => {
-        expect(movieList).toMatchSnapshot();
-    })
-
-    it('component <MovieList/> is render', () => {
-        expect(movieList.find(MovieListView)).toHaveLength(1);
-    })
-})
+  it('get snapshot component', () => {
+    expect(movieList).toMatchSnapshot();
+  });
+});

@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import ReactDOM from 'react-dom';
+import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
-
 import Home from './pages/home';
 import Detail from './pages/Detail';
 import NotFound from './pages/NotFound';
@@ -16,15 +16,17 @@ const cx = classNames.bind(styles);
 import '../style/reset.scss';
 import '../style/common.scss';
 
-const store = configureStore();
+const { store, persistor } = configureStore();
 
 class App extends PureComponent {
   render() {
     return (
       <Provider store={store}>
-        <Home />
-        {/* <Detail /> */}
-        {/* <NotFound /> */}
+        <PersistGate loading={null} persistor={persistor}>
+          <Home />
+          {/* <Detail /> */}
+          {/* <NotFound /> */}
+        </PersistGate>
       </Provider>
     );
   }

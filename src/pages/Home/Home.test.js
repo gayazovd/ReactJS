@@ -10,12 +10,4 @@ describe('<Home/> component testing', () => {
   it('component <Home /> snapshot', () => {
     expect(home).toMatchSnapshot();
   });
-
-  it('component is render', () => {
-    expect(home.find('Header')).toHaveLength(1);
-    expect(home.find('SearchPanel')).toHaveLength(1);
-    expect(home.find('InformationPanel')).toHaveLength(1);
-    expect(home.find('MovieList')).toHaveLength(1);
-    expect(home.find('Footer')).toHaveLength(1);
-  });
 });

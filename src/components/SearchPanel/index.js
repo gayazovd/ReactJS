@@ -1,45 +1,63 @@
 import React, { PureComponent } from 'react';
-import SearchPanelView from './view';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-const TABS = ['genre', 'title'];
+import SearchPanelView from './view';
+import { getActiveTab } from '../../store/components/Default/actions/actions';
+
+const TABS = [{ id: 1, name: 'genre' }, { id: 2, name: 'title' }];
 
 class SearchPanel extends PureComponent {
+  static propTypes = {
+    activeTab: PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string
+    }).isRequired
+  };
 
-    state = {
-        search: '',
-        tab: 'genre',
-        activeTab: 'title'
-    }
+  state = {
+    search: ''
+  };
 
-    handleChangeInput = (e) => {
-        const search = e.target.value;
+  handleChangeInput = e => {
+    const search = e.target.value;
+    this.setState({ search });
+  };
 
-        this.setState({
-            search,
-        })
-    }
+  handleClick = search => {
+    console.log(search);
+  };
 
-    handleClick = () => {
-        console.log(this.state);
-    }
+  handleTabClick = tab => {
+    this.props.getActiveTab(tab);
+  };
 
-    handleTabClick = tab => {
-        this.setState({
-            activeTab: tab
-        }, () => console.log(this.state))
-    }
- 
-    render() {
-        return ( 
-           <SearchPanelView 
-            {...this.state} 
-            tabs={TABS}
-            onInputChange={this.handleChangeInput} 
-            onClick={this.handleClick}
-            onTabClick={this.handleTabClick}
-           />     
-        );
-    }
+  render() {
+    const { activeTab } = this.props;
+    const { search } = this.state;
+    return (
+      <SearchPanelView
+        search={search}
+        activeTab={activeTab}
+        tabs={TABS}
+        onInputChange={this.handleChangeInput}
+        onClick={this.handleClick}
+        onTabClick={this.handleTabClick}
+      />
+    );
+  }
 }
+const mapStateToProps = state => {
+  return {
+    activeTab: state.tabActive,
+    input: state.inputText
+  };
+};
+const mapDispatchToProps = {
+  getActiveTab
+};
 
-export default SearchPanel;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SearchPanel);
