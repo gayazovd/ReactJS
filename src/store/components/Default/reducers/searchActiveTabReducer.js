@@ -1,9 +1,9 @@
-import { ACTIVE_TAB, SEARCH_TAB } from '../actions/actions';
+import { SEARCH_TAB } from '../actions/actions';
 
 const activeTab = (state = {}, action) => {
   switch (action.type) {
-    case ACTIVE_TAB:
-      return action.tab;
+    case SEARCH_TAB:
+      return action.searchTab;
     default:
       return state;
   }

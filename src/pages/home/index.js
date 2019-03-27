@@ -1,13 +1,15 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import Header from '../../components/Header';
 import SearchPanel from '../../components/SearchPanel';
 import MovieList from '../../components/MovieList';
 import InformationPanel from '../../components/InformationPanel';
 import Footer from '../../components/Footer';
+import NotFoundFilms from './components/NotFoundFilms';
 
-import fetchData from '../../store/components/Default/actions/actionsCreator';
+import fetchData from '../../store/components/Default/actions/getDetailFilm';
 
 class Home extends PureComponent {
   static propTypes = {
@@ -15,7 +17,7 @@ class Home extends PureComponent {
   };
 
   componentDidMount() {
-    this.props.fetchData('/movies');
+    // this.props.fetchData('/movies');
   }
 
   render() {
@@ -26,7 +28,7 @@ class Home extends PureComponent {
           <SearchPanel />
         </Header>
         <InformationPanel />
-        <MovieList data={movies} />
+        {movies && movies.length > 0 ? <MovieList data={movies} /> : <NotFoundFilms />}
         <Footer />
       </>
     );
@@ -43,7 +45,9 @@ const mapDispatchToProps = {
   fetchData
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Home);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Home)
+);

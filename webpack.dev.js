@@ -4,15 +4,16 @@ const commonConfig = require('./webpack.common');
 const merge = require('webpack-merge');
 
 module.exports = merge(commonConfig, {
-    devServer: {
-        host: 'localhost',
-        port: 1337,
-        hot: true,
-        headers: {
-            'Access-Control-Allow-Origin': '*'
-        },
-        contentBase: path.join(__dirname, 'dist'),
-        open: true
+  devServer: {
+    host: 'localhost',
+    port: 1337,
+    hot: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*'
     },
-    plugins: [new webpack.HotModuleReplacementPlugin()]
+    historyApiFallback: true,
+    contentBase: path.join(__dirname, 'dist'),
+    open: true
+  },
+  plugins: [new webpack.HotModuleReplacementPlugin()]
 });

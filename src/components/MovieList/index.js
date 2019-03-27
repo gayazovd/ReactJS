@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import MovieListView from './view';
 import { getFilm } from '../../store/components/Default/actions/actions';
 import classNames from 'classNames/bind';
@@ -34,7 +35,9 @@ const mapDispatchToProps = {
   getFilm
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MovieList);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(MovieList)
+);

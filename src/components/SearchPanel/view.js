@@ -23,7 +23,7 @@ const SearchPanelView = ({ search, onInputChange, onClick, tabs, activeTab, onTa
           </button>
         ))}
       </div>
-      <button type="button" className={cx('search')} onClick={() => onClick(search)}>SEARCH</button>
+      <button type="button" className={cx('search')} onClick={() => onClick(search, activeTab)}>SEARCH</button>
     </div>
   </div>
 );

@@ -7,12 +7,12 @@ import NotFoundFilms from './index';
 configure({ adapter: new Adapter() });
 
 describe('component <NotFoundFilms /> is render', () => {
-    const notFound = shallow(<NotFoundFilms />);
-    it('<NotFoundFilms /> snapshot',() => {
-        expect(notFound).toMatchSnapshot();
-    });
+  const notFound = shallow(<NotFoundFilms />);
+  it('<NotFoundFilms /> snapshot', () => {
+    expect(notFound).toMatchSnapshot();
+  });
 
-    it('component render',() => {
-        expect(notFound.find('.error').text()).toEqual('No films found');
-    });
-})
+  it('component render', () => {
+    expect(notFound.find('.error').text()).toEqual('No films found');
+  });
+});

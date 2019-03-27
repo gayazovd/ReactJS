@@ -1,16 +1,24 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import FilmDetail from './components/Movie';
 import MovieList from '../../components/MovieList';
 import InformationPanel from '../../components/InformationPanel';
 import Footer from '../../components/Footer';
 
-import fetchData from '../../store/components/Default/actions/actionsCreator';
+import getDetailFilm from '../../store/components/Default/actions/getDetailFilm';
 
 class Detail extends PureComponent {
   componentDidMount() {
-    this.props.fetchData('/movies');
+    const { id } = this.props.match.params;
+    this.props.getDetailFilm(`/movies/${id}`);
+  }
+  componentDidUpdate(prevProps) {
+    const { id } = this.props.match.params;
+    if (id != prevProps.match.params.id) {
+      this.props.getDetailFilm(`/movies/${id}`);
+    }
   }
 
   render() {
@@ -27,8 +35,7 @@ class Detail extends PureComponent {
 }
 
 Detail.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-  fetchData: PropTypes.func.isRequired
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 const mapStateToProps = state => {
@@ -38,9 +45,11 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  fetchData
+  getDetailFilm
 };
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Detail);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Detail)
+);

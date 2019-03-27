@@ -1,15 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import classNames from 'classNames/bind';
 import s from './style.scss';
 
 const cx = classNames.bind(s);
 
-const FilmPreview = props => {
+const FilmPreview = withRouter(props => {
+  const { history } = props;
   const { onClick, film } = props;
-  const { title, release_date: releaseDate, poster_path: posterPath, genres } = film;
+  const { id, title, release_date: releaseDate, poster_path: posterPath, genres } = film;
   return (
-    <div className={cx('wrapper')} onClick={onClick}>
+    <div
+      className={cx('wrapper')}
+      onClick={() => {
+        history.push(`/detail/${id}`);
+      }}
+    >
       <img className={cx('images')} src={posterPath} />
       <div className={cx('description')}>
         <h3>{title}</h3>
@@ -20,7 +27,7 @@ const FilmPreview = props => {
       </div>
     </div>
   );
-};
+});
 FilmPreview.propTypes = {
   onClick: PropTypes.func.isRequired,
   film: PropTypes.shape({
