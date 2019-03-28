@@ -17,20 +17,18 @@ const cx = classNames.bind(styles);
 import '../style/reset.scss';
 import '../style/common.scss';
 
-const { store, persistor } = configureStore();
+const { store } = configureStore();
 
 class App extends PureComponent {
   render() {
     return (
       <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <Switch>
-            <Route exact path="/" render={() => <Redirect to="/search" />} />
-            <Route path="/search" component={Home} />
-            <Route path="/detail/:id" component={Detail} />
-            <Route path="*" component={NotFound} />
-          </Switch>
-        </PersistGate>
+        <Switch>
+          <Route exact path="/" render={() => <Redirect to="/search" />} />
+          <Route path="/search" component={Home} />
+          <Route path="/detail/:id" component={Detail} />
+          <Route path="*" component={NotFound} />
+        </Switch>
       </Provider>
     );
   }

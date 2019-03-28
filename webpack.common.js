@@ -63,19 +63,22 @@ module.exports = {
         ]
       },
       {
-        test: /\.(jpe?g|png|gif|svg|woff(2)?|ttf|eot|)$/i,
-        loader: 'file-loader',
-        options: {
-          name: '[hash].[ext]',
-          outputPath: 'assets'
-        }
+        test: /\.(png|jpg|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 819299
+            }
+          }
+        ]
       }
     ]
   },
 
   plugins: [HtmlWebpackPluginConfig, DefinePluginConfig, MiniCssExtractPluginConfig],
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(__dirname, '/dist'),
     filename: 'app-bundle.js'
   }
 };

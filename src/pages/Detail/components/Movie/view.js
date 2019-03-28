@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classNames/bind';
+import { NavLink, withRouter } from 'react-router-dom';
 
+import classNames from 'classNames/bind';
 import styles from './style.scss';
 const cx = classNames.bind(styles);
 
@@ -20,7 +21,9 @@ const FilmDetailView = props => {
     <div className={cx('wrapper')}>
       <div className={cx('buttonsWrapper')}>
         <p className={cx('logo')}>netflixroulette</p>
-        <button className={cx('search')}>SEARCH</button>
+        <NavLink to="/search" className={cx('link')}>
+          <button className={cx('search')}>SEARCH</button>
+        </NavLink>
       </div>
       <div className={cx('film-present')}>
         <img className={cx('film-image')} src={posterPath} />
@@ -50,4 +53,4 @@ FilmDetailView.propTypes = {
   }).isRequired
 };
 
-export default FilmDetailView;
+export default withRouter(FilmDetailView);

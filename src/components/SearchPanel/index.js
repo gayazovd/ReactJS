@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 
 import SearchPanelView from './view';
 import { activeSearchTab } from '../../store/components/Default/actions/actions';
@@ -28,12 +29,14 @@ class SearchPanel extends PureComponent {
 
   handleClick = (search, tab) => {
     const { name } = tab;
-    this.props.getSearchingMovies(search, name);
-    console.log(search, tab);
+    const { history } = this.props;
+    history.push({
+      pathname: '/search',
+      search: `?${new URLSearchParams({ searchFilm: search, tab: name })}`
+    });
   };
 
   handleTabClick = tab => {
-    // this.props.getActiveTab(tab);
     this.setState({ searchTab: tab });
   };
 
@@ -62,7 +65,9 @@ const mapDispatchToProps = {
   getSearchingMovies
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SearchPanel);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(SearchPanel)
+);

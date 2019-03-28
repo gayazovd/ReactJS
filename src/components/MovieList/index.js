@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import MovieListView from './view';
 import { getFilm } from '../../store/components/Default/actions/actions';
+import getSearchingMovies from '../../store/components/Default/actions/searchRequest';
+
 import classNames from 'classNames/bind';
 import s from './style.scss';
 const cx = classNames.bind(s);
@@ -32,7 +34,8 @@ const mapStateToProps = state => {
   };
 };
 const mapDispatchToProps = {
-  getFilm
+  getFilm,
+  getSearchingMovies
 };
 
 export default withRouter(

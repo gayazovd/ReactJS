@@ -2,6 +2,7 @@ import { network } from '../../../../services/network';
 import { fetchDataServer } from './actions';
 
 const getSearchingMovies = (searching, tab) => dispatch => {
+  console.log(searching + ' ' + tab);
   const url = createUrl(searching, tab);
   network(url).then(data => {
     const { data: movies } = data.data;
