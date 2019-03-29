@@ -12,18 +12,20 @@ const SearchPanelView = ({ search, onInputChange, onClick, tabs, activeTab, onTa
     <div className={cx('buttonsWraper')}>
       <div className={cx('optionsButtons')}>
         <p className={cx('title')}>SEARCH BY</p>
-        {tabs.map((item, index) => (
+        {tabs.map(item => (
           <button
             type="button"
             key={item.id}
-            className={cx('buttons', { activeTab: activeTab === item })}
-            onClick={() => onTabClick(item)}
+            className={cx('buttons', { activeTab: activeTab === item.name })}
+            onClick={() => onTabClick(item.name)}
           >
             {item.name}
           </button>
         ))}
       </div>
-      <button type="button" className={cx('search')} onClick={() => onClick(search, activeTab)}>SEARCH</button>
+      <button type="button" className={cx('search')} onClick={e => onClick(search, activeTab, e)}>
+        SEARCH
+      </button>
     </div>
   </div>
 );
