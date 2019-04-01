@@ -40,9 +40,10 @@ const MiniCssExtractPluginConfig = new MiniCssExtractPlugin({
   chunkFilename: '[id].css'
 });
 
-console.log(DefinePluginConfig);
+const isDevmode = process.env.NODE_ENV === 'development';
 
 module.exports = {
+  mode: process.env.NODE_ENV,
   entry: ['@babel/polyfill', path.join(__dirname, 'src', 'app.js')],
   module: {
     rules: [

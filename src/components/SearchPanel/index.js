@@ -26,8 +26,9 @@ class SearchPanel extends PureComponent {
   componentDidMount() {
     const params = new URLSearchParams(this.props.location.search);
     const tab = params.get('tab');
+    const search = params.get('searchFilm');
     if (tab) {
-      this.setState({ searchTab: tab });
+      this.setState({ search, searchTab: tab });
     }
   }
 

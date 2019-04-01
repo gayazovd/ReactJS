@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
@@ -34,11 +34,13 @@ class App extends PureComponent {
   }
 }
 
-ReactDOM.render(
-  <Router>
-    <ErrorBoundary>
+const Root = ({ Router }) => {
+  return (
+    <Router>
       <App />
-    </ErrorBoundary>
-  </Router>,
-  document.querySelector('.root')
-);
+    </Router>
+  );
+};
+export default Root;
+
+ReactDOM.render(<Root Router={BrowserRouter} />, document.querySelector('.root'));
