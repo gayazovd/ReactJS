@@ -2,34 +2,12 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const autoprefixer = require('autoprefixer');
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: path.join(__dirname, 'public', 'index.html'),
+  template: path.join(__dirname, 'index', 'index.html'),
   filename: 'index.html',
   inject: true
 });
-
-const CSSModuleLoader = {
-  loader: 'css-loader',
-  options: {
-    modules: true,
-    sourceMap: true,
-    localIdentName: '[local]__[hash:base64:5]'
-  }
-};
-
-const postCSSLoader = {
-  loader: 'postcss-loader',
-  options: {
-    plugins: [
-      autoprefixer({
-        browsers: ['ie >= 8', 'last 4 version']
-      })
-    ],
-    sourceMap: true
-  }
-};
 
 const DefinePluginConfig = new webpack.DefinePlugin({
   'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
@@ -44,7 +22,6 @@ const isDevmode = process.env.NODE_ENV === 'development';
 
 module.exports = {
   mode: process.env.NODE_ENV,
-  entry: ['@babel/polyfill', path.join(__dirname, 'src', 'app.js')],
   module: {
     rules: [
       {
@@ -53,15 +30,6 @@ module.exports = {
         use: {
           loader: 'babel-loader'
         }
-      },
-      {
-        test: /\.s[c|a]ss$/,
-        use: [
-          process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
-          CSSModuleLoader,
-          postCSSLoader,
-          'sass-loader'
-        ]
       },
       {
         test: /\.(png|jpg|gif)$/i,
@@ -77,9 +45,9 @@ module.exports = {
     ]
   },
 
-  plugins: [HtmlWebpackPluginConfig, DefinePluginConfig, MiniCssExtractPluginConfig],
+  plugins: [/* HtmlWebpackPluginConfig, */ DefinePluginConfig /* MiniCssExtractPluginConfig */],
   output: {
-    path: path.resolve(__dirname, '/dist'),
-    filename: 'app-bundle.js'
+    path: path.resolve('./public'),
+    filename: 'js/[name].js'
   }
 };

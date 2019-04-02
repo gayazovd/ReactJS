@@ -22,7 +22,7 @@ const { store } = configureStore();
 class App extends PureComponent {
   render() {
     return (
-      <Provider store={store}>
+      <Provider store={this.props.store}>
         <Switch>
           <Route exact path="/" render={() => <Redirect to="/search" />} />
           <Route path="/search" component={Home} />
@@ -34,13 +34,11 @@ class App extends PureComponent {
   }
 }
 
-const Root = ({ Router }) => {
+const Root = ({ Router, location, context, store }) => {
   return (
-    <Router>
-      <App />
+    <Router location={location} context={context}>
+      <App store={store} />
     </Router>
   );
 };
 export default Root;
-
-ReactDOM.render(<Root Router={BrowserRouter} />, document.querySelector('.root'));
