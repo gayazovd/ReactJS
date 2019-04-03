@@ -4,7 +4,7 @@
   "description": "Webpack bundle for react",
   "main": "app.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=development node ./server",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --config webpack.dev.js -d",
     "build": "cross-env NODE_ENV=production webpack --config ./webpack",
     "prod": "cross-env NODE_ENV=production  node ./server",
     "test": "jest"
@@ -23,6 +23,7 @@
     "react-router-dom": "^5.0.0",
     "redux": "^4.0.1",
     "redux-persist": "^5.10.0",
+    "redux-saga": "^1.0.2",
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {

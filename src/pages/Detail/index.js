@@ -7,7 +7,7 @@ import MovieList from '../../components/MovieList';
 import InformationPanel from '../../components/InformationPanel';
 import Footer from '../../components/Footer';
 
-import getDetailFilm from '../../store/components/Default/actions/getDetailFilm';
+import { getDetailFilm } from '../../store/components/Default/actions/actionCreators';
 
 class Detail extends PureComponent {
   componentDidMount() {

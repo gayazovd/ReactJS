@@ -41,4 +41,4 @@ const Root = ({ Router, location, context, store }) => {
     </Router>
   );
 };
-export default Root;
+ReactDOM.render(<Root Router={BrowserRouter} store={store} />, document.querySelector('.root'));

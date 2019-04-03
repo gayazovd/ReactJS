@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import getSearchingMovies from '../../store/components/Default/actions/searchRequest';
+import { getSearchingMovies } from '../../store/components/Default/actions/actionCreators';
 import Header from '../../components/Header';
 import SearchPanel from '../../components/SearchPanel';
 import MovieList from '../../components/MovieList';
@@ -22,7 +22,7 @@ class Home extends PureComponent {
     const search = params.get('searchFilm');
     const tab = params.get('tab');
     if (search !== null && tab !== null) {
-      this.props.getSearchingMovies(params.get('searchFilm'), params.get('tab'));
+      this.props.getSearchingMovies(search, tab);
     }
   }
 
@@ -57,7 +57,6 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  fetchData,
   getSearchingMovies
 };
 
