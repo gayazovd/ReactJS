@@ -5,13 +5,19 @@ export const ACTIVE_TAB = 'ACTIVE_TAB';
 export const CHANGE_INPUT = 'CHANGE_INPUT';
 export const SEARCH_TAB = 'SEARCH_TAB';
 export const FETCH_REQUEST = 'FETCH_REQUEST';
-export const SHOW_FILM = 'SHOW_FILM';
 
 export const LOAD_FILMS = {
   REQUESTED: 'LOAD_FILMS.REQUESTED', // ЭТО СЛУШАЕТ САГА
   PENDING: 'LOAD_FILMS.PENDING', // ЭТО СЛУШАЮТ РЕДЮСЕРЫ V put из саги
   FAILURE: 'LOAD_FILMS.FAILURE',
   SUCCESS: 'LOAD_FILMS.SUCCESS'
+};
+
+export const SHOW_FILM = {
+  REQUESTED: 'SHOW_FILM.REQUESTED',
+  PENDING: 'SHOW_FILM.PENDING',
+  FAILURE: 'SHOW_FILM.FAILURE',
+  SUCCESS: 'SHOW_FILM.SUCCESS'
 };
 
 export const getSortOnTab = movies => {

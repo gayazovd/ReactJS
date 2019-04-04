@@ -34,7 +34,7 @@ class InformationPanel extends PureComponent {
 }
 const mapStateToProps = state => {
   return {
-    length: state.movies.length,
+    length: state.loadingMovies.movies.length,
     activeTab: state.tabActive
   };
 };

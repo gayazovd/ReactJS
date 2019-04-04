@@ -5,6 +5,8 @@ import { withRouter } from 'react-router-dom';
 import MovieListView from './view';
 import { getFilm } from '../../store/components/Default/actions/actions';
 import getSearchingMovies from '../../store/components/Default/actions/searchRequest';
+import Loading from '../Loading';
+import NotFoundFilms from '../NotFoundFilms';
 
 import classNames from 'classNames/bind';
 import s from './style.scss';
@@ -15,13 +17,19 @@ class MovieList extends PureComponent {
     this.props.getFilm(item);
   };
 
+  renderFilms = movies => {
+    /* if (loading) {
+      return <Loading />;
+    } */
+    if (movies.length > 0) {
+      return <MovieListView onHandleClick={this.handleClickOnFilm} data={movies} />;
+    }
+    return <NotFoundFilms />;
+  };
+
   render() {
     const { movies } = this.props;
-    return (
-      <div className={cx('main-wrapper')}>
-        <MovieListView onHandleClick={this.handleClickOnFilm} data={movies} />
-      </div>
-    );
+    return <div className={cx('main-wrapper')}>{this.renderFilms(movies)}</div>;
   }
 }
 MovieList.propTypes = {
@@ -30,7 +38,7 @@ MovieList.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    movies: state.movies
+    movies: state.loadingMovies.movies
   };
 };
 const mapDispatchToProps = {

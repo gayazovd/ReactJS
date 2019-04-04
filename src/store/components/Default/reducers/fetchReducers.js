@@ -1,9 +1,16 @@
-import { FETCH_REQUEST_TO_SERVER, SORTING_TAB } from '../actions/actions';
+import { LOAD_FILMS, SORTING_TAB } from '../actions/actions';
 
-const dataFromServer = (state = [], action) => {
+const initialState = {
+  loading: false,
+  movies: []
+};
+
+const dataFromServer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_REQUEST_TO_SERVER:
-      return action.movies;
+    case LOAD_FILMS.SUCCESS:
+      return { loading: false, movies: action.movies };
+    case LOAD_FILMS.PENDING:
+      return { ...state, loading: action.loading };
     case SORTING_TAB:
       return action.movies;
     default:

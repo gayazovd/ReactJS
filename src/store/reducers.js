@@ -4,7 +4,7 @@ import activeFilm from './components/Default/reducers/activeReducer';
 import activeTab from './components/Default/reducers/activeTabReducer';
 
 export default combineReducers({
-  movies: dataFromServer,
+  loadingMovies: dataFromServer,
   filmPreview: activeFilm,
   tabActive: activeTab
 });

@@ -8,9 +8,13 @@ import SearchPanel from '../../components/SearchPanel';
 import MovieList from '../../components/MovieList';
 import InformationPanel from '../../components/InformationPanel';
 import Footer from '../../components/Footer';
-import NotFoundFilms from './components/NotFoundFilms';
+import Loading from '../../components/Loading';
 
 import fetchData from '../../store/components/Default/actions/getDetailFilm';
+import classNames from 'classNames/bind';
+import style from './style.scss';
+
+const cx = classNames.bind(style);
 
 class Home extends PureComponent {
   static propTypes = {
@@ -36,15 +40,16 @@ class Home extends PureComponent {
   }
 
   render() {
-    const { movies } = this.props;
+    const { movies, loading } = this.props;
     return (
       <>
         <Header>
           <SearchPanel />
         </Header>
         <InformationPanel />
-        {movies && movies.length > 0 ? <MovieList data={movies} /> : <NotFoundFilms />}
+        <MovieList data={movies} />
         <Footer />
+        <Loading loading={loading} />
       </>
     );
   }
@@ -52,7 +57,8 @@ class Home extends PureComponent {
 
 const mapStateToProps = state => {
   return {
-    movies: state.movies
+    movies: state.loadingMovies.movies,
+    loading: state.loadingMovies.loading
   };
 };
 

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import FilmDetailView from './view';
 import { getFilm } from '../../../../store/components/Default/actions/actions';
+import Loading from '../../../../components/Loading';
 
 import styles from './style.scss';
 import classNames from 'classNames/bind';
@@ -32,8 +33,8 @@ class FilmDetail extends PureComponent {
 
 const mapStateToProps = state => {
   return {
-    movies: state.movies,
-    filmPreview: state.filmPreview
+    filmPreview: state.filmPreview.detail,
+    loading: state.filmPreview.loading
   };
 };
 const mapDispatchToProps = {
