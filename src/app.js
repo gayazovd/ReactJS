@@ -17,28 +17,26 @@ const cx = classNames.bind(styles);
 import '../style/reset.scss';
 import '../style/common.scss';
 
-const { store } = configureStore();
-
 class App extends PureComponent {
-  render() {
-    return (
-      <Provider store={this.props.store}>
-        <Switch>
-          <Route exact path="/" render={() => <Redirect to="/search" />} />
-          <Route path="/search" component={Home} />
-          <Route path="/detail/:id" component={Detail} />
-          <Route path="*" component={NotFound} />
-        </Switch>
-      </Provider>
-    );
-  }
+    render() {
+        return (
+            <Provider store={this.props.store}>
+                <Switch>
+                    <Route exact path="/" render={() => <Redirect to="/search" />} />
+                    <Route path="/search" component={Home} />
+                    <Route path="/detail/:id" component={Detail} />
+                    <Route path="*" component={NotFound} />
+                </Switch>
+            </Provider>
+        );
+    }
 }
 
 const Root = ({ Router, location, context, store }) => {
-  return (
-    <Router location={location} context={context}>
-      <App store={store} />
-    </Router>
-  );
+    return (
+        <Router location={location} context={context}>
+            <App store={store} />
+        </Router>
+    );
 };
-ReactDOM.render(<Root Router={BrowserRouter} store={store} />, document.querySelector('.root'));
+export default Root;

@@ -1,20 +1,20 @@
-import { call, put, takeLatest } from 'redux-saga/effects';
+import { call, put, takeEvery } from 'redux-saga/effects';
 import { network } from '../../../../services/network';
 import { LOAD_FILMS } from '../actions/actions';
 
 export default function* watcherSaga() {
-  yield takeLatest(LOAD_FILMS.REQUESTED, searchRequest);
+    yield takeEvery(LOAD_FILMS.REQUESTED, searchRequest);
 }
 
 function* searchRequest({ payload }) {
-  const { search, tab } = payload;
-  const url = createUrl(search, tab);
-  yield put({ type: LOAD_FILMS.PENDING, loading: true });
-  const response = yield call(() => network(url));
-  const movies = response.data.data;
-  yield put({ type: LOAD_FILMS.SUCCESS, movies });
+    const { search, tab } = payload;
+    const url = createUrl(search, tab);
+    yield put({ type: LOAD_FILMS.PENDING, loading: true });
+    const response = yield call(() => network(url));
+    const movies = response.data.data;
+    yield put({ type: LOAD_FILMS.SUCCESS, movies });
 }
 
 const createUrl = (search, tab) => {
-  return `/movies?search=${search}&searchBy=${tab}&limit=500`;
+    return `/movies?search=${search}&searchBy=${tab}`;
 };

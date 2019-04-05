@@ -7,10 +7,10 @@ import { getFilm } from '../actions/actions';
 configure({ adapter: new Adapter() });
 
 describe('Test redux activeReducer', () => {
-  it('should add new data', () => {
-    const newData = { title: 'title', vote_average: 8 };
-    const action = getFilm(newData);
-    const newState = activeFilm({}, action);
-    expect(newState).toMatchObject(newData);
-  });
+    it('should add new data', () => {
+        const newData = { title: 'title', vote_average: 8 };
+        const action = getFilm(newData);
+        const newState = activeFilm({}, action);
+        expect(newState).toMatchObject(newData);
+    });
 });

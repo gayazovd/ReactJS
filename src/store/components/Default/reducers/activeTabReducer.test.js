@@ -7,10 +7,10 @@ import { getActiveTab } from '../actions/actions';
 configure({ adapter: new Adapter() });
 
 describe('Test redux activeTabReducer', () => {
-  it('should add new data', () => {
-    const newData = { id: 1, rating: 'vote_average' };
-    const action = getActiveTab(newData);
-    const newState = activeTab({}, action);
-    expect(newState).toMatchObject(newData);
-  });
+    it('should add new data', () => {
+        const newData = { id: 1, rating: 'vote_average' };
+        const action = getActiveTab(newData);
+        const newState = activeTab({}, action);
+        expect(newState).toMatchObject(newData);
+    });
 });

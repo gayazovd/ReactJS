@@ -10,88 +10,88 @@ import getSearchingMovies from '../../store/components/Default/actions/searchReq
 const TABS = [{ id: 1, name: 'genres' }, { id: 2, name: 'title' }];
 
 class SearchPanel extends PureComponent {
-  static propTypes = {
-    /*   searchTab: PropTypes.shape({
+    static propTypes = {
+        /*   searchTab: PropTypes.shape({
       id: PropTypes.number,
       name: PropTypes.string
     }).isRequired */
-  };
+    };
 
-  state = {
-    search: '',
-    searchTab: TABS[1].name,
-    isOpen: false
-  };
+    state = {
+        search: '',
+        searchTab: TABS[1].name,
+        isOpen: false
+    };
 
-  componentDidMount() {
-    const params = new URLSearchParams(this.props.location.search);
-    const tab = params.get('tab');
-    const search = params.get('searchFilm');
-    if (tab) {
-      this.setState({ search, searchTab: tab });
+    componentDidMount() {
+        const params = new URLSearchParams(this.props.location.search);
+        const tab = params.get('tab');
+        const search = params.get('searchFilm');
+        if (tab) {
+            this.setState({ search, searchTab: tab });
+        }
     }
-  }
 
-  handleChangeInput = e => {
-    const search = e.target.value;
-    this.setState({ search });
-  };
+    handleChangeInput = e => {
+        const search = e.target.value;
+        this.setState({ search });
+    };
 
-  handleClick = (search, name, event) => {
-    if (search === '' || name === '') {
-      event.preventDefault();
-      this.setState({ isOpen: true });
-    } else {
-      const { history } = this.props;
-      history.push({
-        pathname: '/search',
-        search: `?${new URLSearchParams({ searchFilm: search, tab: name })}`
-      });
+    handleClick = (search, name, event) => {
+        if (search === '' || name === '') {
+            event.preventDefault();
+            this.setState({ isOpen: true });
+        } else {
+            const { history } = this.props;
+            history.push({
+                pathname: '/search',
+                search: `?${new URLSearchParams({ searchFilm: search, tab: name })}`
+            });
+        }
+    };
+
+    closeModal = () => {
+        this.setState({ isOpen: false });
+    };
+
+    handleTabClick = tab => {
+        this.setState({ searchTab: tab });
+    };
+
+    render() {
+        const { search, searchTab, isOpen } = this.state;
+        return (
+            <>
+                <SearchPanelView
+                    search={search}
+                    activeTab={searchTab}
+                    tabs={TABS}
+                    onInputChange={this.handleChangeInput}
+                    onClick={this.handleClick}
+                    onTabClick={this.handleTabClick}
+                />
+                <Modal
+                    show={isOpen}
+                    text="Введите данные в поисковую панель!"
+                    closeModal={this.closeModal}
+                />
+            </>
+        );
     }
-  };
-
-  closeModal = () => {
-    this.setState({ isOpen: false });
-  };
-
-  handleTabClick = tab => {
-    this.setState({ searchTab: tab });
-  };
-
-  render() {
-    const { search, searchTab, isOpen } = this.state;
-    return (
-      <>
-        <SearchPanelView
-          search={search}
-          activeTab={searchTab}
-          tabs={TABS}
-          onInputChange={this.handleChangeInput}
-          onClick={this.handleClick}
-          onTabClick={this.handleTabClick}
-        />
-        <Modal
-          show={isOpen}
-          text="Введите данные в поисковую панель!"
-          closeModal={this.closeModal}
-        />
-      </>
-    );
-  }
 }
 const mapStateToProps = state => {
-  return {
-    // searchTab: state.searchTab
-  };
+    return {
+        // searchTab: state.searchTab
+    };
 };
 const mapDispatchToProps = {
-  // activeSearchTab,
-  getSearchingMovies
+    // activeSearchTab,
+    getSearchingMovies
 };
 
 export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(SearchPanel)
+    connect(
+        mapStateToProps,
+        mapDispatchToProps
+    )(SearchPanel)
 );

@@ -17,58 +17,66 @@ import style from './style.scss';
 const cx = classNames.bind(style);
 
 class Home extends PureComponent {
-  static propTypes = {
-    movies: PropTypes.arrayOf(PropTypes.object).isRequired
-  };
+    static propTypes = {
+        movies: PropTypes.arrayOf(PropTypes.object).isRequired
+    };
 
-  componentDidMount() {
-    const params = new URLSearchParams(this.props.location.search);
-    const search = params.get('searchFilm');
-    const tab = params.get('tab');
-    if (search !== null && tab !== null) {
-      this.props.getSearchingMovies(search, tab);
+    componentWillMount() {
+        const params = new URLSearchParams(this.props.location.search);
+        const search = params.get('searchFilm');
+        const tab = params.get('tab');
+        if (search !== null && tab !== null) {
+            this.props.getSearchingMovies(search, tab);
+        }
     }
-  }
+    /* componentDidMount() {
+        const params = new URLSearchParams(this.props.location.search);
+        const search = params.get('searchFilm');
+        const tab = params.get('tab');
+        if (search !== null && tab !== null) {
+            this.props.getSearchingMovies(search, tab);
+        }
+    } */
 
-  componentDidUpdate(prevProps) {
-    const params = new URLSearchParams(this.props.location.search);
-    const search = params.get('searchFilm');
-    const tab = params.get('tab');
-    if (this.props.location !== prevProps.location) {
-      this.props.getSearchingMovies(search, tab);
+    componentDidUpdate(prevProps) {
+        const params = new URLSearchParams(this.props.location.search);
+        const search = params.get('searchFilm');
+        const tab = params.get('tab');
+        if (this.props.location !== prevProps.location) {
+            this.props.getSearchingMovies(search, tab);
+        }
     }
-  }
 
-  render() {
-    const { movies, loading } = this.props;
-    return (
-      <>
-        <Header>
-          <SearchPanel />
-        </Header>
-        <InformationPanel />
-        <MovieList data={movies} />
-        <Footer />
-        <Loading loading={loading} />
-      </>
-    );
-  }
+    render() {
+        const { movies, loading } = this.props;
+        return (
+            <>
+                <Header>
+                    <SearchPanel />
+                </Header>
+                <InformationPanel />
+                <MovieList data={movies} />
+                <Footer />
+                <Loading loading={loading} />
+            </>
+        );
+    }
 }
 
 const mapStateToProps = state => {
-  return {
-    movies: state.loadingMovies.movies,
-    loading: state.loadingMovies.loading
-  };
+    return {
+        movies: state.loadingMovies.movies,
+        loading: state.loadingMovies.loading
+    };
 };
 
 const mapDispatchToProps = {
-  getSearchingMovies
+    getSearchingMovies
 };
 
 export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Home)
+    connect(
+        mapStateToProps,
+        mapDispatchToProps
+    )(Home)
 );

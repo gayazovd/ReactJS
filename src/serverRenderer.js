@@ -4,8 +4,8 @@ import { StaticRouter } from 'react-router-dom';
 import configureStore from './store/configureStore';
 import Root from './app';
 
-function renderHtml(html, preloadedState) {
-  return `<!DOCTYPE html>
+function renderHTML(html, preloadedState) {
+    return `<!DOCTYPE html>
     <html lang="en">
       <head>
         <meta charset="UTF-8" />
@@ -14,9 +14,9 @@ function renderHtml(html, preloadedState) {
         <base href="/" />
         <title>Document</title>
         ${
-          process.env.NODE_ENV === 'development'
-            ? ''
-            : '<link href="/css/main.css" rel="stylesheet" type="text/css">'
+            process.env.NODE_ENV === 'development'
+                ? ''
+                : '<link href="/css/main.css" rel="stylesheet" type="text/css">'
         }
       </head>
       <body>
@@ -26,6 +26,7 @@ function renderHtml(html, preloadedState) {
             // http://redux.js.org/docs/recipes/ServerRendering.html#security-considerations
             window.PRELOADED_STATE = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
           </script>
+        
         <script src="/js/main.js"></script>
       </body>
     </html>
@@ -33,21 +34,32 @@ function renderHtml(html, preloadedState) {
 }
 
 export default function serverRenderer() {
-  return (req, res) => {
-    const context = {};
-    const store = configureStore();
-    const root = <Root context={context} location={req.url} Router={StaticRouter} />;
+    return (req, res) => {
+        const store = configureStore();
+        const context = {};
+        const root = (
+            <Root context={context} location={req.url} Router={StaticRouter} store={store} />
+        );
+        store
+            .runSaga()
+            .toPromise()
+            .then(() => {
+                const htmlString = renderToString(root);
+                if (context.url) {
+                    res.writeHead(302, {
+                        Location: context.url
+                    });
+                    res.end();
+                    return;
+                }
 
-    const htmlString = renderToString(root);
+                const preloadedState = store.getState();
 
-    if (context.url) {
-      res.writeHead(302, {
-        Location: context.url
-      });
-      res.end();
-      return;
-    }
+                res.send(renderHTML(htmlString, preloadedState));
+            })
+            .catch(e => console.log(e));
 
-    res.send(renderHtml(htmlString));
-  };
+        renderToString(root);
+        store.close();
+    };
 }
