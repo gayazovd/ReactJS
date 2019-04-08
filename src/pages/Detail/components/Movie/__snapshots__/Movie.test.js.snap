@@ -1,67 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Component is render <FilmDetail /> snapshot 1`] = `
-<div
-  className="wrapper"
->
-  <div
-    className="buttonsWrapper"
-  >
-    <p
-      className="logo"
-    >
-      netflixroulette
-    </p>
-    <button
-      className="search"
-    >
-      SEARCH
-    </button>
-  </div>
-  <div
-    className="film-present"
-  >
-    <img
-      className="film-image"
-      src="path"
-    />
-    <div
-      className="description"
-    >
-      <div
-        className="wrapper-title-average"
-      >
-        <h1
-          className="title"
-        >
-          Heroes
-        </h1>
-        <div
-          className="vote-average"
-        >
-          7.7
-        </div>
-      </div>
-      <h5>
-        movie
-      </h5>
-      <div
-        className="release-date"
-      >
-        <span>
-          2019
-        </span>
-        <span>
-          120
-           min
-        </span>
-      </div>
-      <p
-        className="overview"
-      >
-        asas
-      </p>
-    </div>
-  </div>
-</div>
+<Route>
+  <Component />
+</Route>
 `;

@@ -2,9 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import FilmDetailView from './view';
-import { getFilm } from '../../../../store/components/Default/actions/actions';
-import Loading from '../../../../components/Loading';
-
 import styles from './style.scss';
 import classNames from 'classNames/bind';
 
@@ -37,11 +34,5 @@ const mapStateToProps = state => {
         loading: state.filmPreview.loading
     };
 };
-const mapDispatchToProps = {
-    getFilm
-};
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(FilmDetail);
+export default connect(mapStateToProps)(FilmDetail);

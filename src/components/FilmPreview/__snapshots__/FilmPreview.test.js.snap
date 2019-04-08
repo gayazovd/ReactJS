@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Home/> component testing component <Home /> snapshot 1`] = `
+exports[`FilmPreview component is render FilmPreview render 1`] = `
 <Route>
   <Component />
 </Route>

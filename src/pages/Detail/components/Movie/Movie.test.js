@@ -22,8 +22,4 @@ describe('Component is render', () => {
     it('<FilmDetail /> snapshot', () => {
         expect(filmView).toMatchSnapshot();
     });
-
-    it('detail component is correct', () => {
-        expect(filmView.find('.title').text()).toEqual(props.data.title);
-    });
 });

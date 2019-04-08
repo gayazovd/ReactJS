@@ -8,13 +8,9 @@ import MovieList from './index';
 configure({ adapter: new Adapter() });
 
 describe('MovieListView is render', () => {
-  const props = {
-    data: [{ id: 1 }, { id: 2 }]
-  };
+    const movieList = shallow(<MovieList />);
 
-  const movieList = shallow(<MovieList />);
-
-  it('get snapshot component', () => {
-    expect(movieList).toMatchSnapshot();
-  });
+    it('get snapshot component', () => {
+        expect(movieList).toMatchSnapshot();
+    });
 });

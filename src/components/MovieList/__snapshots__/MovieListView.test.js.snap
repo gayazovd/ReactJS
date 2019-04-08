@@ -4,23 +4,21 @@ exports[`MovieListView is render get snapshot component 1`] = `
 <div
   className="wrapper"
 >
-  <FilmPreview
+  <withRouter()
     film={
       Object {
         "id": 1,
       }
     }
     key="1"
-    onClick={[Function]}
   />
-  <FilmPreview
+  <withRouter()
     film={
       Object {
         "id": 2,
       }
     }
     key="2"
-    onClick={[Function]}
   />
 </div>
 `;

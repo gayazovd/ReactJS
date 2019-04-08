@@ -31,23 +31,20 @@ exports[`component <SearchPanelView /> is render get snapshot <SearchPanelView /
         SEARCH BY
       </p>
       <button
-        className="buttons activeTab"
-        key="0"
+        className="buttons"
         onClick={[Function]}
-      >
-        1
-      </button>
+        type="button"
+      />
       <button
         className="buttons"
-        key="1"
         onClick={[Function]}
-      >
-        2
-      </button>
+        type="button"
+      />
     </div>
     <button
       className="search"
-      onClick={[MockFunction]}
+      onClick={[Function]}
+      type="button"
     >
       SEARCH
     </button>

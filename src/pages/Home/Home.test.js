@@ -6,8 +6,8 @@ import Home from './index';
 configure({ adapter: new Adapter() });
 
 describe('<Home/> component testing', () => {
-  const home = shallow(<Home />);
-  it('component <Home /> snapshot', () => {
-    expect(home).toMatchSnapshot();
-  });
+    const home = shallow(<Home />);
+    it('component <Home /> snapshot', () => {
+        expect(home).toMatchSnapshot();
+    });
 });

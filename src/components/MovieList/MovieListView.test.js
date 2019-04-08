@@ -8,21 +8,13 @@ import MovieList from './index';
 configure({ adapter: new Adapter() });
 
 describe('MovieListView is render', () => {
-  const onHandleClick = jest.fn();
-  const props = {
-    data: [{ id: 1 }, { id: 2 }],
-    onHandleClick
-  };
+    const props = {
+        data: [{ id: 1 }, { id: 2 }]
+    };
 
-  const movieView = shallow(<MovieListView {...props} />);
+    const movieView = shallow(<MovieListView {...props} />);
 
-  it('get snapshot component', () => {
-    expect(movieView).toMatchSnapshot();
-  });
-
-  it('component <MovieListView/> is render', () => {
-    const element = movieView.find('FilmPreview').at(1);
-    element.simulate('click');
-    expect(onHandleClick).toHaveBeenCalled();
-  });
+    it('get snapshot component', () => {
+        expect(movieView).toMatchSnapshot();
+    });
 });

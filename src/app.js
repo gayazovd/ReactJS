@@ -3,19 +3,18 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
+import classnames from 'classnames/bind';
 import configureStore from './store/configureStore';
 import Home from './pages/Home';
 import Detail from './pages/Detail';
 import NotFound from './pages/Error404';
 import ErrorBoundary from './components/ErrorBoundary';
-import classNames from 'classNames/bind';
+import '../style/reset.scss';
+import '../style/common.scss';
 
 import styles from './style.scss';
 
-const cx = classNames.bind(styles);
-
-import '../style/reset.scss';
-import '../style/common.scss';
+const cx = classnames.bind(styles);
 
 class App extends PureComponent {
     render() {

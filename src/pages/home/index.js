@@ -10,7 +10,6 @@ import InformationPanel from '../../components/InformationPanel';
 import Footer from '../../components/Footer';
 import Loading from '../../components/Loading';
 
-import fetchData from '../../store/components/Default/actions/getDetailFilm';
 import classNames from 'classNames/bind';
 import style from './style.scss';
 
@@ -21,7 +20,8 @@ class Home extends PureComponent {
         movies: PropTypes.arrayOf(PropTypes.object).isRequired
     };
 
-    componentWillMount() {
+    constructor(props) {
+        super(props);
         const params = new URLSearchParams(this.props.location.search);
         const search = params.get('searchFilm');
         const tab = params.get('tab');
@@ -29,14 +29,6 @@ class Home extends PureComponent {
             this.props.getSearchingMovies(search, tab);
         }
     }
-    /* componentDidMount() {
-        const params = new URLSearchParams(this.props.location.search);
-        const search = params.get('searchFilm');
-        const tab = params.get('tab');
-        if (search !== null && tab !== null) {
-            this.props.getSearchingMovies(search, tab);
-        }
-    } */
 
     componentDidUpdate(prevProps) {
         const params = new URLSearchParams(this.props.location.search);

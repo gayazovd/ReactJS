@@ -11,13 +11,14 @@ import Loading from '../../components/Loading';
 import { getDetailFilm } from '../../store/components/Default/actions/actionCreators';
 
 class Detail extends PureComponent {
-    componentDidMount() {
-        window.scrollTo(0, 0);
-    }
-
-    componentWillMount() {
+    constructor(props) {
+        super(props);
         const { id } = this.props.match.params;
         this.props.getDetailFilm(`/movies/${id}`);
+    }
+
+    componentDidMount() {
+        window.scrollTo(0, 0);
     }
 
     componentDidUpdate(prevProps) {
