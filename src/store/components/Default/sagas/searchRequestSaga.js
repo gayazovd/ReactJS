@@ -1,12 +1,12 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
-import { network } from '../../../../services/network';
+import network from '../../../../services/network';
 import { LOAD_FILMS } from '../actions/actions';
 
 export default function* watcherSaga() {
     yield takeEvery(LOAD_FILMS.REQUESTED, searchRequest);
 }
 
-function* searchRequest({ payload }) {
+export function* searchRequest({ payload }) {
     const { search, tab } = payload;
     const url = createUrl(search, tab);
     yield put({ type: LOAD_FILMS.PENDING, loading: true });

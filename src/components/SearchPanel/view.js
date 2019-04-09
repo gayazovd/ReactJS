@@ -1,8 +1,8 @@
 import React from 'react';
-import classNames from 'classNames/bind';
+import classnames from 'classnames/bind';
 import styles from './style.scss';
 
-const cx = classNames.bind(styles);
+const cx = classnames.bind(styles);
 
 const SearchPanelView = ({ search, onInputChange, onClick, tabs, activeTab, onTabClick }) => (
     <div className={cx('wrapper')}>

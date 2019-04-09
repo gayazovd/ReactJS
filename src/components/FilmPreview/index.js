@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames/bind';
 import { withRouter } from 'react-router-dom';
-import classNames from 'classNames/bind';
 import s from './style.scss';
 
-const cx = classNames.bind(s);
+const cx = classnames.bind(s);
 
 const FilmPreview = withRouter(props => {
     const { history } = props;
@@ -16,8 +16,10 @@ const FilmPreview = withRouter(props => {
             onClick={() => {
                 history.push(`/detail/${id}`);
             }}
+            onKeyDown={() => {}}
+            role="presentation"
         >
-            <img className={cx('images')} src={posterPath} />
+            <img className={cx('images')} src={posterPath} alt="img" />
             <div className={cx('description')}>
                 <h3>{title}</h3>
                 <div className={cx('wrapper-genres-date')}>

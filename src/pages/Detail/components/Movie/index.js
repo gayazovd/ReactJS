@@ -1,11 +1,11 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import classnames from 'classnames/bind';
 import FilmDetailView from './view';
 import styles from './style.scss';
-import classNames from 'classNames/bind';
 
-const cx = classNames.bind(styles);
+const cx = classnames.bind(styles);
 
 class FilmDetail extends PureComponent {
     static propTypes = {

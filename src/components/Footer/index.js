@@ -1,8 +1,8 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
+import classnames from 'classnames/bind';
 import styles from './style.scss';
-import classNames from 'classNames/bind';
 
-const cx = classNames.bind(styles);
+const cx = classnames.bind(styles);
 
 const Footer = () => (
     <div className={cx('wrapper')}>

@@ -1,6 +1,4 @@
 import React, { PureComponent } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import Modal from '../Modal';
 import SearchPanelView from './view';
@@ -8,13 +6,6 @@ import SearchPanelView from './view';
 const TABS = [{ id: 1, name: 'genres' }, { id: 2, name: 'title' }];
 
 class SearchPanel extends PureComponent {
-    static propTypes = {
-        /*   searchTab: PropTypes.shape({
-      id: PropTypes.number,
-      name: PropTypes.string
-    }).isRequired */
-    };
-
     state = {
         search: '',
         searchTab: TABS[1].name,

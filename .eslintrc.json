@@ -10,6 +10,9 @@
             "error",
             4,
             { "checkAttributes": true, "indentLogicalExpressions": true }
-        ]
+        ],
+        "react/destructuring-assignment": [true, "always", { "ignoreClassFields": true }],
+        "react/jsx-one-expression-per-line": [true, { "allow": "single-child" }],
+        "react/jsx-indent-props": [true, "tab"]
     }
 }

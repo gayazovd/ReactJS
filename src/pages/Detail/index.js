@@ -1,5 +1,5 @@
+// @flow
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import FilmDetail from './components/Movie';
@@ -7,10 +7,27 @@ import MovieList from '../../components/MovieList';
 import InformationPanel from '../../components/InformationPanel';
 import Footer from '../../components/Footer';
 import Loading from '../../components/Loading';
-
 import { getDetailFilm } from '../../store/components/Default/actions/actionCreators';
+import type { detail } from '../../store/components/Default/reducers/fetchReducers';
 
-class Detail extends PureComponent {
+type Params = {
+    id: number
+};
+type Match = {
+    params: Params,
+    isExact: boolean,
+    path: string,
+    url: string
+};
+
+type Props = {
+    movies: detail[],
+    loading: boolean,
+    match: Match,
+    getDetailFilm: string => void
+};
+
+class Detail extends PureComponent<Props> {
     constructor(props) {
         super(props);
         const { id } = this.props.match.params;
@@ -42,10 +59,6 @@ class Detail extends PureComponent {
         );
     }
 }
-
-Detail.propTypes = {
-    movies: PropTypes.arrayOf(PropTypes.object).isRequired
-};
 
 const mapStateToProps = state => {
     return {

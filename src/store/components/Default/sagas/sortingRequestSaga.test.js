@@ -2,21 +2,22 @@ import '@babel/polyfill';
 import { put } from 'redux-saga/effects';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { getDetailFilm } from './getDetailFilmSaga';
-import { SHOW_FILM } from '../actions/actions';
+import { fetchSortBy } from './sortingRequestSaga';
+import { SORTING_FILMS } from '../actions/actions';
 
 configure({ adapter: new Adapter() });
 
 describe('test getDetailFilmSaga', () => {
-    const url = 'some';
-    const action = { payload: { url } };
-    const gen = getDetailFilm(action);
+    const tab = { tab: 'some' };
+    const action = { payload: { tab } };
+    const gen = fetchSortBy(action);
     it('works correctly ', () => {
         const data = '1';
         const derivedAction = gen.next().value;
-        expect(derivedAction).toEqual(put({ type: SHOW_FILM.PENDING, loading: true }));
+        expect(derivedAction).toEqual(put({ type: SORTING_FILMS.PENDING, loading: true }));
         gen.next();
         gen.next({ data });
+        gen.next();
         expect(gen.next().done).toEqual(true);
     });
 });

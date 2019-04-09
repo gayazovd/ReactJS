@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink, withRouter } from 'react-router-dom';
-
-import classNames from 'classNames/bind';
+import classnames from 'classnames/bind';
 import styles from './style.scss';
-const cx = classNames.bind(styles);
+
+const cx = classnames.bind(styles);
 
 const FilmDetailView = props => {
     const { data } = props;
@@ -22,11 +22,13 @@ const FilmDetailView = props => {
             <div className={cx('buttonsWrapper')}>
                 <p className={cx('logo')}>netflixroulette</p>
                 <NavLink to="/search" className={cx('link')}>
-                    <button className={cx('search')}>SEARCH</button>
+                    <button type="button" className={cx('search')}>
+                        SEARCH
+                    </button>
                 </NavLink>
             </div>
             <div className={cx('film-present')}>
-                <img className={cx('film-image')} src={posterPath} />
+                <img className={cx('film-image')} src={posterPath} alt="img" />
                 <div className={cx('description')}>
                     <div className={cx('wrapper-title-average')}>
                         <h1 className={cx('title')}>{title}</h1>

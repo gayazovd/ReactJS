@@ -10,11 +10,6 @@ import InformationPanel from '../../components/InformationPanel';
 import Footer from '../../components/Footer';
 import Loading from '../../components/Loading';
 
-import classNames from 'classNames/bind';
-import style from './style.scss';
-
-const cx = classNames.bind(style);
-
 class Home extends PureComponent {
     static propTypes = {
         movies: PropTypes.arrayOf(PropTypes.object).isRequired

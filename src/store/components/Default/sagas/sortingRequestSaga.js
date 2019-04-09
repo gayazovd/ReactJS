@@ -1,12 +1,12 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { network } from '../../../../services/network';
+import network from '../../../../services/network';
 import { SORTING_FILMS, ACTIVE_TAB } from '../actions/actions';
 
 export default function* watchSortBy() {
     yield takeLatest(SORTING_FILMS.REQUESTED, fetchSortBy);
 }
 
-function* fetchSortBy({ payload }) {
+export function* fetchSortBy({ payload }) {
     const { tab } = payload;
     const url = createUrl(tab);
     const activeTabChange = changeTabSortOrder(tab);

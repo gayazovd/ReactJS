@@ -1,8 +1,8 @@
 import React from 'react';
+import classnames from 'classnames/bind';
 import styles from './style.scss';
-import classNames from 'classNames/bind';
 
-const cx = classNames.bind(styles);
+const cx = classnames.bind(styles);
 
 const Header = ({ children }) => <div className={cx('wrapper', 'wrapperPosition')}>{children}</div>;
 

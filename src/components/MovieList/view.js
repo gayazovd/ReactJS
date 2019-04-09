@@ -1,19 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames/bind';
 import FilmPreview from '../FilmPreview';
-import s from './style.scss';
+import styles from './style.scss';
 
-import classNames from 'classNames/bind';
-const cx = classNames.bind(s);
+const cx = classnames.bind(styles);
 
-const MovieListView = ({ onHandleClick, data }) => (
+const MovieListView = ({ data }) => (
     <div className={cx('wrapper')}>
         {data && data.map(item => <FilmPreview key={item.id} film={item} />)}
     </div>
 );
 MovieListView.propTypes = {
-    data: PropTypes.arrayOf(PropTypes.object).isRequired,
-    onHandleClick: PropTypes.func.isRequired
+    data: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default MovieListView;

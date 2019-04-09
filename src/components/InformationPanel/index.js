@@ -1,12 +1,12 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import classnames from 'classnames/bind';
 import InformationPanelView from './view';
 import styles from './style.scss';
-import classNames from 'classNames/bind';
 
 import { fetchBySort } from '../../store/components/Default/actions/actionCreators';
 
-const cx = classNames.bind(styles);
+const cx = classnames.bind(styles);
 
 const tabs = [
     { id: 1, name: 'rating', SortBy: 'vote_average', sortOrder: false },

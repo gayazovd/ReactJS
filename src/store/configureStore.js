@@ -14,7 +14,7 @@ const persistConfig = {
 
 export default function configureStore(initialState) {
     const sagaMiddleware = createSagaMiddleware();
-    let store = createStore(
+    const store = createStore(
         rootReducer,
         initialState,
         compose(

@@ -2,21 +2,17 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import classnames from 'classnames/bind';
 import MovieListView from './view';
 import NotFoundFilms from '../NotFoundFilms';
+import styles from './style.scss';
 
-import classNames from 'classNames/bind';
-import s from './style.scss';
-const cx = classNames.bind(s);
+const cx = classnames.bind(styles);
 
 class MovieList extends PureComponent {
-    handleClickOnFilm = item => {
-        this.props.getFilm(item);
-    };
-
     renderFilms = movies => {
         if (movies.length > 0) {
-            return <MovieListView onHandleClick={this.handleClickOnFilm} data={movies} />;
+            return <MovieListView data={movies} />;
         }
         return <NotFoundFilms />;
     };

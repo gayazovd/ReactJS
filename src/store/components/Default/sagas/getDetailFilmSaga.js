@@ -1,5 +1,5 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { network } from '../../../../services/network';
+import network from '../../../../services/network';
 import { SHOW_FILM } from '../actions/actions';
 
 export default function* watchDetailFilm() {
