@@ -41,7 +41,7 @@ class Detail extends PureComponent<Props> {
     componentDidUpdate(prevProps) {
         window.scrollTo(0, 0);
         const { id } = this.props.match.params;
-        if (id != prevProps.match.params.id) {
+        if (id !== prevProps.match.params.id) {
             this.props.getDetailFilm(`/movies/${id}`);
         }
     }

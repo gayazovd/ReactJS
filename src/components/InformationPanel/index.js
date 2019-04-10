@@ -1,3 +1,4 @@
+// @flow
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import classnames from 'classnames/bind';
@@ -13,7 +14,18 @@ const tabs = [
     { id: 2, name: 'release date', SortBy: 'release_date', sortOrder: true }
 ];
 
-class InformationPanel extends PureComponent {
+type Props = {
+    length: number,
+    activeTab: {
+        id: number,
+        name: string,
+        SortBy: string,
+        sortOrder: boolean
+    },
+    fetchBySort: ({ id: number, name: string, SortBy: string, sortOrder: boolean }) => void
+};
+
+class InformationPanel extends PureComponent<Props> {
     handleClickOnSort = tab => {
         this.props.fetchBySort(tab);
     };
@@ -34,7 +46,7 @@ class InformationPanel extends PureComponent {
 }
 const mapStateToProps = state => {
     return {
-        length: state.loadingMovies.movies.length,
+        length: state.loadingMovies.movies.size,
         activeTab: state.tabActive
     };
 };

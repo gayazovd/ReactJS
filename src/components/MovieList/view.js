@@ -1,18 +1,20 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames/bind';
 import FilmPreview from '../FilmPreview';
 import styles from './style.scss';
+import type { detail } from '../../store/components/Default/reducers/fetchReducers';
 
 const cx = classnames.bind(styles);
 
-const MovieListView = ({ data }) => (
+type Props = {
+    data: detail[]
+};
+
+const MovieListView = ({ data }: Props) => (
     <div className={cx('wrapper')}>
         {data && data.map(item => <FilmPreview key={item.id} film={item} />)}
     </div>
 );
-MovieListView.propTypes = {
-    data: PropTypes.arrayOf(PropTypes.object).isRequired
-};
 
 export default MovieListView;

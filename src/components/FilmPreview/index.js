@@ -1,12 +1,23 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames/bind';
 import { withRouter } from 'react-router-dom';
 import s from './style.scss';
 
 const cx = classnames.bind(s);
 
-const FilmPreview = withRouter(props => {
+type Props = {
+    history: { push: string => void },
+    film: {
+        id: number,
+        title: string,
+        release_date: string,
+        poster_path: string,
+        genres: string[]
+    }
+};
+
+const FilmPreview = withRouter((props: Props) => {
     const { history } = props;
     const { film } = props;
     const { id, title, release_date: releaseDate, poster_path: posterPath, genres } = film;
@@ -30,14 +41,5 @@ const FilmPreview = withRouter(props => {
         </div>
     );
 });
-FilmPreview.propTypes = {
-    onClick: PropTypes.func.isRequired,
-    film: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        release_date: PropTypes.string.isRequired,
-        poster_path: PropTypes.string.isRequired,
-        genres: PropTypes.arrayOf(PropTypes.string).isRequired
-    }).isRequired
-};
 
 export default FilmPreview;

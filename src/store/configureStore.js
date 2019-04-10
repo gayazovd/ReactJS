@@ -14,14 +14,7 @@ const persistConfig = {
 
 export default function configureStore(initialState) {
     const sagaMiddleware = createSagaMiddleware();
-    const store = createStore(
-        rootReducer,
-        initialState,
-        compose(
-            applyMiddleware(sagaMiddleware)
-            //   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-        )
-    );
+    const store = createStore(rootReducer, initialState, applyMiddleware(sagaMiddleware));
     sagaMiddleware.run(rootSaga);
     store.runSaga = () => sagaMiddleware.run(rootSaga);
     store.close = () => store.dispatch(END);

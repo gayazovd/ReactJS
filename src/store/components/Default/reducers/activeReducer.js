@@ -1,5 +1,4 @@
 // @flow
-
 import { SHOW_FILM } from '../actions/actions';
 
 type State = {

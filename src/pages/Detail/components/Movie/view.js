@@ -1,12 +1,24 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import { NavLink, withRouter } from 'react-router-dom';
 import classnames from 'classnames/bind';
 import styles from './style.scss';
 
 const cx = classnames.bind(styles);
 
-const FilmDetailView = props => {
+type Props = {
+    data: {
+        title: string,
+        tagline: string,
+        vote_average: number,
+        release_date: string,
+        poster_path: string,
+        overview: string,
+        runtime: string
+    }
+};
+
+const FilmDetailView = (props: Props) => {
     const { data } = props;
     const {
         title,
@@ -44,15 +56,6 @@ const FilmDetailView = props => {
             </div>
         </div>
     );
-};
-FilmDetailView.propTypes = {
-    data: PropTypes.shape({
-        title: PropTypes.string,
-        tagline: PropTypes.string,
-        vote_average: PropTypes.number,
-        release_date: PropTypes.string,
-        poster_path: PropTypes.string
-    }).isRequired
 };
 
 export default withRouter(FilmDetailView);

@@ -1,15 +1,20 @@
+// @flow
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import classnames from 'classnames/bind';
 import MovieListView from './view';
 import NotFoundFilms from '../NotFoundFilms';
 import styles from './style.scss';
+import type { detail } from '../../store/components/Default/reducers/fetchReducers';
 
 const cx = classnames.bind(styles);
 
-class MovieList extends PureComponent {
+type Props = {
+    movies: detail[]
+};
+
+class MovieList extends PureComponent<Props> {
     renderFilms = movies => {
         if (movies.length > 0) {
             return <MovieListView data={movies} />;
@@ -22,9 +27,6 @@ class MovieList extends PureComponent {
         return <div className={cx('main-wrapper')}>{this.renderFilms(movies)}</div>;
     }
 }
-MovieList.propTypes = {
-    movies: PropTypes.arrayOf(PropTypes.object).isRequired
-};
 
 const mapStateToProps = state => {
     return {

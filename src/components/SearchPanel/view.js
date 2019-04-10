@@ -1,10 +1,27 @@
+// @flow
 import React from 'react';
 import classnames from 'classnames/bind';
 import styles from './style.scss';
 
 const cx = classnames.bind(styles);
 
-const SearchPanelView = ({ search, onInputChange, onClick, tabs, activeTab, onTabClick }) => (
+type Props = {
+    search: ?string,
+    onInputChange: any => void,
+    onClick: (?string, string, SyntheticMouseEvent<HTMLButtonElement>) => void,
+    onTabClick: string => void,
+    tabs: { id: number, name: string }[],
+    activeTab: string
+};
+
+const SearchPanelView = ({
+    search,
+    onInputChange,
+    onClick,
+    tabs,
+    activeTab,
+    onTabClick
+}: Props) => (
     <div className={cx('wrapper')}>
         <div className={cx('logo')}>netflixroullete</div>
         <div className={cx('titleFind')}>FIND YOUR MOVIE</div>

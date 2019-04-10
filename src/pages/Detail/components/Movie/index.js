@@ -1,23 +1,24 @@
+// @flow
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classnames from 'classnames/bind';
 import FilmDetailView from './view';
 import styles from './style.scss';
 
 const cx = classnames.bind(styles);
+type Props = {
+    filmPreview: {
+        title: string,
+        tagline: string,
+        vote_average: number,
+        release_date: string,
+        poster_path: string,
+        overview: string,
+        runtime: string
+    }
+};
 
-class FilmDetail extends PureComponent {
-    static propTypes = {
-        filmPreview: PropTypes.shape({
-            id: PropTypes.number,
-            genres: PropTypes.array,
-            vote_average: PropTypes.number,
-            release_date: PropTypes.string,
-            overview: PropTypes.string
-        }).isRequired
-    };
-
+class FilmDetail extends PureComponent<Props> {
     render() {
         const { filmPreview } = this.props;
         return (
@@ -30,8 +31,7 @@ class FilmDetail extends PureComponent {
 
 const mapStateToProps = state => {
     return {
-        filmPreview: state.filmPreview.detail,
-        loading: state.filmPreview.loading
+        filmPreview: state.filmPreview.detail
     };
 };
 

@@ -1,5 +1,5 @@
+// @flow
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { getSearchingMovies } from '../../store/components/Default/actions/actionCreators';
@@ -10,11 +10,16 @@ import InformationPanel from '../../components/InformationPanel';
 import Footer from '../../components/Footer';
 import Loading from '../../components/Loading';
 
-class Home extends PureComponent {
-    static propTypes = {
-        movies: PropTypes.arrayOf(PropTypes.object).isRequired
-    };
+import type { detail } from '../../store/components/Default/reducers/fetchReducers';
 
+type Props = {
+    movies: detail[],
+    loading: boolean,
+    location: { search: string },
+    getSearchingMovies: (?string, ?string) => void
+};
+
+class Home extends PureComponent<Props> {
     constructor(props) {
         super(props);
         const params = new URLSearchParams(this.props.location.search);

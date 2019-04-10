@@ -1,13 +1,23 @@
+// @flow
 import React from 'react';
+import styled from 'styled-components';
 import classnames from 'classnames/bind';
 
 import styles from './style.scss';
 
 const cx = classnames.bind(styles);
 
-const NotFoundFilms = ({ loading }) => (
+type Props = {
+    loading: boolean
+};
+
+const Error = styled.h1`
+    font-size: 46px;
+`;
+
+const NotFoundFilms = ({ loading }: Props) => (
     <div className={cx('wrapper', { notActive: loading })}>
-        <h1 className={cx('error')}>No films found</h1>
+        <Error>No films found</Error>
     </div>
 );
 

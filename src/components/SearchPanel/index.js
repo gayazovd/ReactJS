@@ -1,3 +1,4 @@
+// @flow
 import React, { PureComponent } from 'react';
 import { withRouter } from 'react-router-dom';
 import Modal from '../Modal';
@@ -5,7 +6,18 @@ import SearchPanelView from './view';
 
 const TABS = [{ id: 1, name: 'genres' }, { id: 2, name: 'title' }];
 
-class SearchPanel extends PureComponent {
+type Props = {
+    location: { search: string },
+    history: { push: any => void }
+};
+
+type State = {
+    search: ?string,
+    searchTab: string,
+    isOpen: boolean
+};
+
+class SearchPanel extends PureComponent<Props, State> {
     state = {
         search: '',
         searchTab: TABS[1].name,
@@ -21,12 +33,12 @@ class SearchPanel extends PureComponent {
         }
     }
 
-    handleChangeInput = e => {
+    handleChangeInput = (e: SyntheticInputEvent<HTMLInputElement>) => {
         const search = e.target.value;
         this.setState({ search });
     };
 
-    handleClick = (search, name, event) => {
+    handleClick = (search: string, name, event: SyntheticMouseEvent<HTMLButtonElement>) => {
         if (search === '' || name === '') {
             event.preventDefault();
             this.setState({ isOpen: true });
@@ -34,7 +46,7 @@ class SearchPanel extends PureComponent {
             const { history } = this.props;
             history.push({
                 pathname: '/search',
-                search: `?${new URLSearchParams({ searchFilm: search, tab: name })}`
+                search: `?${new URLSearchParams({ searchFilm: search, tab: name }).toString()}`
             });
         }
     };
