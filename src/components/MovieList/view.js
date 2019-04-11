@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import { List } from 'immutable';
 import classnames from 'classnames/bind';
 import FilmPreview from '../FilmPreview';
 import styles from './style.scss';
@@ -8,7 +9,7 @@ import type { detail } from '../../store/components/Default/reducers/fetchReduce
 const cx = classnames.bind(styles);
 
 type Props = {
-    data: detail[]
+    data: List<detail>
 };
 
 const MovieListView = ({ data }: Props) => (

@@ -2,6 +2,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { List } from 'immutable';
 import classnames from 'classnames/bind';
 import MovieListView from './view';
 import NotFoundFilms from '../NotFoundFilms';
@@ -11,12 +12,12 @@ import type { detail } from '../../store/components/Default/reducers/fetchReduce
 const cx = classnames.bind(styles);
 
 type Props = {
-    movies: detail[]
+    movies: List<detail>
 };
 
 class MovieList extends PureComponent<Props> {
     renderFilms = movies => {
-        if (movies.length > 0) {
+        if (movies.size > 0) {
             return <MovieListView data={movies} />;
         }
         return <NotFoundFilms />;

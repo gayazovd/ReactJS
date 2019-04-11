@@ -4,7 +4,7 @@ import { LOAD_FILMS, SORTING_FILMS } from '../actions/actions';
 
 const initialState = {
     loading: false,
-    movies: List([])
+    movies: []
 };
 
 export type detail = {
@@ -24,14 +24,14 @@ export type detail = {
 
 type State = {
     loading: boolean,
-    movies: detail[],
+    movies: List<detail>,
     loading: boolean
 };
 
 type Action = {
     type: string,
     loading: boolean,
-    movies: detail[]
+    movies: List<detail>
 };
 
 const dataFromServer = (state: State = initialState, action: Action) => {

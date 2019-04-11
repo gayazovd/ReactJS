@@ -1,10 +1,11 @@
 // @flow
 import React from 'react';
+import { List } from 'immutable';
 import classnames from 'classnames/bind';
 import styles from './style.scss';
 
 const cx = classnames.bind(styles);
-type Tabs = {
+type Tab = {
     id: number,
     name: string,
     SortBy: string,
@@ -12,7 +13,7 @@ type Tabs = {
 };
 
 type Props = {
-    tabs: Tabs[],
+    tabs: List<Tab>,
     length: number,
     activeTab: { id: number, name: string, SortBy: string, sortOrder: boolean },
     onHandleClick: ({ id: number, name: string, SortBy: string, sortOrder: boolean }) => void
@@ -22,7 +23,7 @@ const InformationPanelView = (props: Props) => {
     const { onHandleClick, tabs, length, activeTab } = props;
     return (
         <>
-            <div>{length > 0} movies found</div>
+            <div>{length || 0} movies found</div>
             <div className={cx('sort-oprions')}>
                 <div>Sort by</div>
                 {tabs.map(tab => (

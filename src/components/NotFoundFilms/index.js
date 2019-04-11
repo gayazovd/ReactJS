@@ -15,8 +15,8 @@ const Error = styled.h1`
     font-size: 46px;
 `;
 
-const NotFoundFilms = ({ loading }: Props) => (
-    <div className={cx('wrapper', { notActive: loading })}>
+const NotFoundFilms = () => (
+    <div className={cx('wrapper')}>
         <Error>No films found</Error>
     </div>
 );

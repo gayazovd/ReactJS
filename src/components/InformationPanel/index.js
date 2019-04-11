@@ -2,6 +2,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import classnames from 'classnames/bind';
+import { List } from 'immutable';
 import InformationPanelView from './view';
 import styles from './style.scss';
 
@@ -9,10 +10,10 @@ import { fetchBySort } from '../../store/components/Default/actions/actionCreato
 
 const cx = classnames.bind(styles);
 
-const tabs = [
+const tabs = List([
     { id: 1, name: 'rating', SortBy: 'vote_average', sortOrder: false },
     { id: 2, name: 'release date', SortBy: 'release_date', sortOrder: true }
-];
+]);
 
 type Props = {
     length: number,

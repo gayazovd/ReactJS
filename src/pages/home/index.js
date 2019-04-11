@@ -2,6 +2,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { List } from 'immutable';
 import { getSearchingMovies } from '../../store/components/Default/actions/actionCreators';
 import Header from '../../components/Header';
 import SearchPanel from '../../components/SearchPanel';
@@ -13,7 +14,7 @@ import Loading from '../../components/Loading';
 import type { detail } from '../../store/components/Default/reducers/fetchReducers';
 
 type Props = {
-    movies: detail[],
+    movies: List<detail>,
     loading: boolean,
     location: { search: string },
     getSearchingMovies: (?string, ?string) => void
